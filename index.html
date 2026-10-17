@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Tienda Online.com.ar ✨ - Tienda Online</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#FF69B4',
+            primaryHover: '#FF1493',
+            softPink: '#FFF0F5',
+            accentPink: '#FF85C1'
+          }
+        }
+      }
+    }
+  </script>
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+
+  <style>
+    body { font-family: 'Poppins', sans-serif; }
+    .fa, .fas, .far, .fab { color: #111 !important; }
+    button, a { cursor: pointer; }
+    img { -webkit-user-drag: none; user-drag: none; }
+    .tactile { transition: transform .12s ease, box-shadow .12s ease; }
+    .tactile:active { transform: scale(.97); }
+    .star { color: #ffb400; }
+    .focus-ring:focus { outline: 3px solid rgba(255,105,180,0.18); outline-offset: 3px; }
+  </style>
+</head>
+<body class="bg-white text-gray-800 antialiased selection:bg-pink-100 selection:text-pink-600">
+
+  <header class="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-pink-100 shadow-sm">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+      <a href="#" class="text-2xl font-bold tracking-tight text-gray-900 flex items-center gap-3">
+        <span class="text-primary text-xl">✨</span>
+        <span class="leading-none">Tienda Online.com.ar</span>
+      </a>
+
+      <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-gray-600">
+        <a href="#" class="hover:text-primary transition-colors">Inicio</a>
+        <a href="#productos" class="hover:text-primary transition-colors">Productos</a>
+        <a href="#reseñas" class="hover:text-primary transition-colors">Reseñas</a>
+        <a href="#compras" class="hover:text-primary transition-colors">Compras</a>
+        <a href="#contacto" class="hover:text-primary transition-colors">Contacto</a>
+      </nav>
+
+      <div class="flex items-center gap-4">
+        <button id="cart-btn" aria-label="Abrir carrito" class="relative p-2.5 rounded-full bg-softPink text-primary hover:bg-pink-100 transition-colors focus:outline-none tactile focus-ring">
+          <i class="fa-solid fa-bag-shopping text-lg"></i>
+          <span id="cart-count" class="absolute -top-1 -right-1 bg-primary text-white text-xs w-5 h-5 rounded-full flex items-center justify-center font-bold shadow-sm">0</span>
+        </button>
+
+        <button id="mobile-menu" class="md:hidden p-2 rounded-lg text-gray-600 hover:bg-gray-100 tactile focus-ring" aria-label="Abrir menú">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <section class="relative bg-gradient-to-b from-softPink/50 to-white py-16 lg:py-28 overflow-hidden">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+      <span class="inline-block py-1 px-4 rounded-full bg-pink-100 text-primary text-xs font-semibold uppercase tracking-wider mb-6">
+        🚀 ¡Envío gratis en compras mayores a $50!
+      </span>
+      <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-gray-900 tracking-tight max-w-3xl mx-auto leading-tight">
+        Indumentaria que enamora, <span class="text-primary">estilo que define tu día</span> ✨
+      </h1>
+      <p class="mt-6 text-lg text-gray-600 max-w-xl mx-auto">
+        Elegancia y comodidad en cada prenda. Descubre nuestras colecciones pensadas para sentirte única.
+      </p>
+      <div class="mt-10 flex justify-center gap-4">
+        <a href="#productos" class="px-8 py-4 rounded-full bg-primary text-white font-semibold shadow-lg shadow-pink-200 hover:bg-primaryHover transition-all transform hover:-translate-y-0.5 tactile focus-ring">
+          Ver Productos
+        </a>
+        <a href="#reseñas" class="px-6 py-4 rounded-full border border-pink-100 text-primary font-semibold hover:bg-pink-50 transition tactile focus-ring">Leer Reseñas</a>
+      </div>
+    </div>
+  </section>
+
+  <main id="productos" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+    <div class="flex items-center justify-between mb-8">
+      <div>
+        <h2 class="text-3xl font-bold text-gray-900">Nuestros Favoritos</h2>
+        <p class="text-gray-500 mt-2">Seleccionados especialmente para ti</p>
+      </div>
+      <div class="text-sm text-gray-500 hidden sm:block">Íconos en negro · Diseño rosa claro y blanco</div>
+    </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+
+      <div class="bg-white rounded-2xl border border-gray-100 shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden flex flex-col group">
+        <div class="relative bg-gray-100 h-72 overflow-hidden">
+          <img src="https://images.unsplash.com/photo-1541099649105-f69ad21f3246?auto=format&fit=crop&w=800&q=80" alt="Vestido Rosa Pastel" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+          <span class="absolute top-3 left-3 bg-white/90 backdrop-blur-sm text-primary text-xs font-bold px-3 py-1 rounded-full shadow-sm">Nuevo</span>
+        </div>
+        <div class="p-6 flex flex-col flex-grow justify-between">
+          <div>
+            <h3 class="font-semibold text-lg text-gray-900">Vestido Rosa Pastel</h3>
+            <p class="text-gray-500 text-sm mt-1">Corte midi, tela suave y caída elegante.</p>
+          </div>
+          <div class="mt-6 flex items-center justify-between">
+            <span class="text-xl font-bold text-gray-900">$59.00</span>
+            <button onclick="addToCart('Vestido Rosa Pastel', 59.00, 'https://images.unsplash.com/photo-1541099649105-f69ad21f3246?auto=format&fit=crop&w=800&q=80')" class="bg-softPink text-primary p-3 rounded-xl hover:bg-primary hover:text-white transition-colors tactile focus-ring" aria-label="Agregar Vestido Rosa Pastel al carrito">
+              <i class="fa-solid fa-cart-plus"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-white rounded-2xl border border-gray-100 shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden flex flex-col group">
+        <div class="relative bg-gray-100 h-72 overflow-hidden">
+          <img src="https://images.unsplash.com/photo-1542060748-7a1a27cdff07?auto=format&fit=crop&w=800&q=80" alt="Camisa de Seda" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+        </div>
+        <div class="p-6 flex flex-col flex-grow justify-between">
+          <div>
+            <h3 class="font-semibold text-lg text-gray-900">Blusa Seda Satinada</h3>
+            <p class="text-gray-500 text-sm mt-1">Perfecta para salidas formales o casuales.</p>
+          </div>
+          <div class="mt-6 flex items-center justify-between">
+            <span class="text-xl font-bold text-gray-900">$42.00</span>
+            <button onclick="addToCart('Blusa Seda Satinada', 42.00, 'https://images.unsplash.com/photo-1542060748-7a1a27cdff07?auto=format&fit=crop&w=800&q=80')" class="bg-softPink text-primary p-3 rounded-xl hover:bg-primary hover:text-white transition-colors tactile focus-ring">
+              <i class="fa-solid fa-cart-plus"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-white rounded-2xl border border-gray-100 shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden flex flex-col group">
+        <div class="relative bg-gray-100 h-72 overflow-hidden">
+          <img src="https://images.unsplash.com/photo-1520975919292-3a1b9d8f7e7b?auto=format&fit=crop&w=800&q=80" alt="Chaqueta Denim" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+          <span class="absolute top-3 left-3 bg-white/90 backdrop-blur-sm text-primary text-xs font-bold px-3 py-1 rounded-full shadow-sm">-20%</span>
+        </div>
+        <div class="p-6 flex flex-col flex-grow justify-between">
+          <div>
+            <h3 class="font-semibold text-lg text-gray-900">Chaqueta Denim Oversize</h3>
+            <p class="text-gray-500 text-sm mt-1">Estilo relajado con presencia urbana.</p>
+          </div>
+          <div class="mt-6 flex items-center justify-between">
+            <span class="text-xl font-bold text-gray-900">$74.00</span>
+            <button onclick="addToCart('Chaqueta Denim Oversize', 74.00, 'https://images.unsplash.com/photo-1520975919292-3a1b9d8f7e7b?auto=format&fit=crop&w=800&q=80')" class="bg-softPink text-primary p-3 rounded-xl hover:bg-primary hover:text-white transition-colors tactile focus-ring">
+              <i class="fa-solid fa-cart-plus"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-white rounded-2xl border border-gray-100 shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden flex flex-col group">
+        <div class="relative bg-gray-100 h-72 overflow-hidden">
+          <img src="https://images.unsplash.com/photo-1495121605193-b116b5b09a6a?auto=format&fit=crop&w=800&q=80" alt="Pantalón Palazzo" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+        </div>
+        <div class="p-6 flex flex-col flex-grow justify-between">
+          <div>
+            <h3 class="font-semibold text-lg text-gray-900">Pantalón Palazzo</h3>
+            <p class="text-gray-500 text-sm mt-1">Ligero y elegante, ideal para combinar.</p>
+          </div>
+          <div class="mt-6 flex items-center justify-between">
+            <span class="text-xl font-bold text-gray-900">$39.00</span>
+            <button onclick="addToCart('Pantalón Palazzo', 39.00, 'https://images.unsplash.com/photo-1495121605193-b116b5b09a6a?auto=format&fit=crop&w=800&q=80')" class="bg-softPink text-primary p-3 rounded-xl hover:bg-primary hover:text-white transition-colors tactile focus-ring">
+              <i class="fa-solid fa-cart-plus"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-white rounded-2xl border border-gray-100 shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden flex flex-col group">
+        <div class="relative bg-gray-100 h-72 overflow-hidden">
+          <img src="https://images.unsplash.com/photo-1514995669114-8f5b7b7e1a2e?auto=format&fit=crop&w=800&q=80" alt="Top Crop" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+        </div>
+        <div class="p-6 flex flex-col flex-grow justify-between">
+          <div>
+            <h3 class="font-semibold text-lg text-gray-900">Top Crop Encaje</h3>
+            <p class="text-gray-500 text-sm mt-1">Detalle delicado, ideal para combinar con jeans.</p>
+          </div>
+          <div class="mt-6 flex items-center justify-between">
+            <span class="text-xl font-bold text-gray-900">$25.00</span>
+            <button onclick="addToCart('Top Crop Encaje', 25.00, 'https://images.unsplash.com/photo-1514995669114-8f5b7b7e1a2e?auto=format&fit=crop&w=800&q=80')" class="bg-softPink text-primary p-3 rounded-xl hover:bg-primary hover:text-white transition-colors tactile focus-ring">
+              <i class="fa-solid fa-cart-plus"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-white rounded-2xl border border-gray-100 shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden flex flex-col group">
+        <div class="relative bg-gray-100 h-72 overflow-hidden">
+          <img src="https://images.unsplash.com/photo-1497294815431-9365093b7331?auto=format&fit=crop&w=800&q=80" alt="Zapatos Blancos" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+        </div>
+        <div class="p-6 flex flex-col flex-grow justify-between">
+          <div>
+            <h3 class="font-semibold text-lg text-gray-900">Sneakers Blanco Clásico</h3>
+            <p class="text-gray-500 text-sm mt-1">Cómodo y con diseño atemporal.</p>
+          </div>
+          <div class="mt-6 flex items-center justify-between">
+            <span class="text-xl font-bold text-gray-900">$54.00</span>
+            <button onclick="addToCart('Sneakers Blanco Clásico', 54.00, 'https://images.unsplash.com/photo-1497294815431-9365093b7331?auto=format&fit=crop&w=800&q=80')" class="bg-softPink text-primary p-3 rounded-xl hover:bg-primary hover:text-white transition-colors tactile focus-ring">
+              <i class="fa-solid fa-cart-plus"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-white rounded-2xl border border-gray-100 shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden flex flex-col group">
+        <div class="relative bg-gray-100 h-72 overflow-hidden">
+          <img src="https://images.unsplash.com/photo-1520975698514-6b04b2d7b0f7?auto=format&fit=crop&w=800&q=80" alt="Bolso Beige" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+        </div>
+        <div class="p-6 flex flex-col flex-grow justify-between">
+          <div>
+            <h3 class="font-semibold text-lg text-gray-900">Bolso Tote Beige</h3>
+            <p class="text-gray-500 text-sm mt-1">Amplio y con diseño práctico.</p>
+          </div>
+          <div class="mt-6 flex items-center justify-between">
+            <span class="text-xl font-bold text-gray-900">$48.00</span>
+            <button onclick="addToCart('Bolso Tote Beige', 48.00, 'https://images.unsplash.com/photo-1520975698514-6b04b2d7b0f7?auto=format&fit=crop&w=800&q=80')" class="bg-softPink text-primary p-3 rounded-xl hover:bg-primary hover:text-white transition-colors tactile focus-ring">
+              <i class="fa-solid fa-cart-plus"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <div id="cart-overlay" class="fixed inset-0 bg-black/40 backdrop-blur-sm z-50 hidden transition-opacity"></div>
+  <aside id="cart-drawer" class="fixed top-0 right-0 h-full w-full max-w-md bg-white shadow-2xl z-50 transform translate-x-full transition-transform duration-300 flex flex-col">
+    <div class="p-6 border-b border-gray-100 flex items-center justify-between">
+      <h2 class="text-xl font-bold text-gray-900 flex items-center gap-2">
+        <i class="fa-solid fa-bag-shopping"></i> Tu Carrito
+      </h2>
+      <button id="close-cart" class="text-gray-400 hover:text-gray-600 p-2 rounded-full hover:bg-gray-100 tactile focus-ring" aria-label="Cerrar carrito">
+        <i class="fa-solid fa-xmark text-lg"></i>
+      </button>
+    </div>
+
+    <div id="cart-items" class="flex-grow overflow-y-auto p-6 space-y-4">
+      <p id="empty-cart-msg" class="text-gray-400 text-center py-12">Tu carrito está vacío 🛍️</p>
+    </div>
+
+    <div class="p-6 border-t border-gray-100 bg-gray-50/50">
+      <div class="flex justify-between items-center mb-4">
+        <span class="text-gray-600 font-medium">Total estimado:</span>
+        <span id="cart-total" class="text-2xl font-bold text-gray-900">$0.00</span>
+      </div>
+      <div class="flex gap-3">
+        <button onclick="checkout()" class="flex-1 bg-primary text-white py-3 rounded-xl font-semibold shadow-lg shadow-pink-200 hover:bg-primaryHover transition tactile focus-ring">
+          Finalizar Compra
+        </button>
+        <button onclick="clearCart()" class="w-16 bg-white border border-gray-200 rounded-xl text-gray-700 tactile focus-ring" title="Vaciar carrito">
+          <i class="fa-solid fa-trash-can"></i>
+        </button>
+      </div>
+    </div>
+  </aside>
+
+  <section id="reseñas" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+    <div class="text-center mb-8">
+      <h2 class="text-3xl font-bold text-gray-900">Reseñas de Clientes</h2>
+      <p class="text-gray-500 mt-2">Lo que dicen quienes ya compraron</p>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+      <div class="space-y-4">
+        <div id="reviews-list" class="space-y-4"></div>
+      </div>
+
+      <div class="bg-white rounded-2xl border border-gray-100 p-6 shadow-sm">
+        <h3 class="font-semibold text-lg text-gray-900 mb-3">Deja tu reseña</h3>
+        <form id="review-form" class="space-y-4" onsubmit="return submitReview(event)">
+          <input id="review-name" class="w-full border border-gray-200 rounded-lg px-3 py-2 focus:ring-1 focus:ring-primary focus:outline-none" placeholder="Tu nombre (ej. Gabi)" required />
+          <select id="review-rating" class="w-full border border-gray-200 rounded-lg px-3 py-2 focus:ring-1 focus:ring-primary focus:outline-none" required>
+            <option value="5">★★★★★ 5 - Excelente</option>
+            <option value="4">★★★★ 4 - Muy bueno</option>
+            <option value="3">★★★ 3 - Bueno</option>
+            <option value="2">★★ 2 - Regular</option>
+            <option value="1">★ 1 - Malo</option>
+          </select>
+          <textarea id="review-comment" rows="4" class="w-full border border-gray-200 rounded-lg px-3 py-2 focus:ring-1 focus:ring-primary focus:outline-none" placeholder="Tu opinión..." required></textarea>
+          <div class="flex justify-between items-center">
+            <button type="submit" class="bg-primary text-white px-5 py-3 rounded-xl font-semibold hover:bg-primaryHover tactile focus-ring">Publicar</button>
+            <small class="text-gray-400">Gracias por ayudar a mejorar</small>
+          </div>
+        </form>
+      </div>
+
+      <div class="bg-white rounded-2xl border border-gray-100 p-6 shadow-sm">
+        <h3 class="font-semibold text-lg text-gray-900 mb-3">Valoración promedio</h3>
+        <div class="flex items-center gap-4">
+          <div class="text-4xl font-bold" id="avg-rating">5.0</div>
+          <div>
+            <div class="flex items-center gap-1" id="avg-stars"></div>
+            <div class="text-sm text-gray-500" id="total-reviews">0 reseñas</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="compras" class="bg-gray-50 py-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between mb-6">
+        <h3 class="text-2xl font-bold text-gray-900">Compras Recientes</h3>
+        <p class="text-sm text-gray-500">Muestra de pedidos y estilo</p>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div class="bg-white p-4 rounded-xl border border-gray-100 shadow-sm flex items-center gap-4">
+          <img src="https://images.unsplash.com/photo-1541099649105-f69ad21f3246?auto=format&fit=crop&w=120&q=60" alt="Vestido Rosa" class="w-20 h-20 rounded-lg object-cover">
+          <div class="flex-1">
+            <div class="flex items-center justify-between">
+              <div>
+                <div class="font-semibold">Vestido Rosa Pastel</div>
+                <div class="text-sm text-gray-500">Talla M · 2 días</div>
+              </div>
+              <div class="text-right">
+                <div class="font-bold">$59</div>
+                <div class="text-sm text-gray-400">Envío: gratis</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-white p-4 rounded-xl border border-gray-100 shadow-sm flex items-center gap-4">
+          <img src="https://images.unsplash.com/photo-1520975919292-3a1b9d8f7e7b?auto=format&fit=crop&w=120&q=60" alt="Chaqueta" class="w-20 h-20 rounded-lg object-cover">
+          <div class="flex-1">
+            <div class="flex items-center justify-between">
+              <div>
+                <div class="font-semibold">Chaqueta Denim</div>
+                <div class="text-sm text-gray-500">Talla L · 1 día</div>
+              </div>
+              <div class="text-right">
+                <div class="font-bold">$74</div>
+                <div class="text-sm text-gray-400">Recogida disponible</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-white p-4 rounded-xl border border-gray-100 shadow-sm flex items-center gap-4">
+          <img src="https://images.unsplash.com/photo-1495121605193-b116b5b09a6a?auto=format&fit=crop&w=120&q=60" alt="Pantalón" class="w-20 h-20 rounded-lg object-cover">
+          <div class="flex-1">
+            <div class="flex items-center justify-between">
+              <div>
+                <div class="font-semibold">Pantalón Palazzo</div>
+                <div class="text-sm text-gray-500">Talla S · 3 días</div>
+              </div>
+              <div class="text-right">
+                <div class="font-bold">$39</div>
+                <div class="text-sm text-gray-400">Entrega rápida</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-white p-4 rounded-xl border border-gray-100 shadow-sm flex items-center gap-4">
+          <img src="https://images.unsplash.com/photo-1497294815431-9365093b7331?auto=format&fit=crop&w=120&q=60" alt="Sneakers" class="w-20 h-20 rounded-lg object-cover">
+          <div class="flex-1">
+            <div class="flex items-center justify-between">
+              <div>
+                <div class="font-semibold">Sneakers Blanco</div>
+                <div class="text-sm text-gray-500">Talla 38 · 1 día</div>
+              </div>
+              <div class="text-right">
+                <div class="font-bold">$54</div>
+                <div class="text-sm text-gray-400">Devolución 15 días</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer id="contacto" class="bg-white border-t border-gray-100 py-12 mt-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-6">
+      <div class="text-gray-500 text-sm">
+        © 2026 Tienda Online.com.ar. Todos los derechos reservados.
+        <div class="mt-2">Tel: <a href="tel:3518631873" class="text-gray-800 font-medium">3518631873</a> <span class="text-gray-400"> (mostrado: 3518631873v)</span></div>
+      </div>
+
+      <div class="flex gap-6 text-gray-400">
+        <a href="https://instagram.com/gabijofree_" target="_blank" rel="noopener noreferrer" class="hover:text-primary transition-colors tactile focus-ring"><i class="fa-brands fa-instagram text-2xl"></i></a>
+        <a href="https://facebook.com/gabijofre_" target="_blank" rel="noopener noreferrer" class="hover:text-primary transition-colors tactile focus-ring"><i class="fa-brands fa-facebook text-2xl"></i></a>
+        <a href="#" class="hover:text-primary transition-colors tactile focus-ring"><i class="fa-brands fa-tiktok text-2xl"></i></a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    let cart = [];
+
+    const cartBtn = document.getElementById('cart-btn');
+    const closeCartBtn = document.getElementById('close-cart');
+    const cartDrawer = document.getElementById('cart-drawer');
+    const cartOverlay = document.getElementById('cart-overlay');
+    const cartItemsContainer = document.getElementById('cart-items');
+    const cartCount = document.getElementById('cart-count');
+    const cartTotal = document.getElementById('cart-total');
+
+    function loadCart() {
+      try {
+        const raw = localStorage.getItem('tienda_cart_v1');
+        cart = raw ? JSON.parse(raw) : [];
+      } catch (e) { cart = []; }
+      updateCartUI();
+    }
+
+    function saveCart() {
+      localStorage.setItem('tienda_cart_v1', JSON.stringify(cart));
+    }
+
+    function toggleCart(show) {
+      if (show === undefined) cartDrawer.classList.toggle('translate-x-full');
+      else if (show) cartDrawer.classList.remove('translate-x-full'); else cartDrawer.classList.add('translate-x-full');
+
+      cartOverlay.classList.toggle('hidden', cartDrawer.classList.contains('translate-x-full'));
+    }
+
+    cartBtn.addEventListener('click', () => toggleCart(true));
+    closeCartBtn.addEventListener('click', () => toggleCart(false));
+    cartOverlay.addEventListener('click', () => toggleCart(false));
+
+    function addToCart(name, price, image) {
+      const existing = cart.find(i => i.name === name);
+      if (existing) existing.quantity += 1;
+      else cart.push({ name, price, image, quantity: 1 });
+      saveCart();
+      updateCartUI();
+      toggleCart(true);
+      showToast(`${name} agregado al carrito`);
+    }
+
+    function changeQuantity(name, delta) {
+      const item = cart.find(i => i.name === name);
+      if (!item) return;
+      item.quantity += delta;
+      if (item.quantity < 1) {
+        cart = cart.filter(i => i.name !== name);
+      }
+      saveCart();
+      updateCartUI();
+    }
+
+    function removeFromCart(name) {
+      cart = cart.filter(item => item.name !== name);
+      saveCart();
+      updateCartUI();
+    }
+
+    function clearCart() {
+      if (!confirm('¿Vaciar todo el carrito?')) return;
+      cart = [];
+      saveCart();
+      updateCartUI();
+      showToast('Carrito vaciado');
+    }
+
+    function updateCartUI() {
+      cartCount.textContent = cart.reduce((s, it) => s + it.quantity, 0);
+
+      if (cart.length === 0) {
+        cartItemsContainer.innerHTML = `<p id="empty-cart-msg" class="text-gray-400 text-center py-12">Tu carrito está vacío 🛍️</p>`;
+        cartTotal.textContent = '$0.00';
+        return;
+      }
+
+      cartItemsContainer.innerHTML = '';
+      let total = 0;
+
+      cart.forEach(item => {
+        total += item.price * item.quantity;
+        const wrapper = document.createElement('div');
+        wrapper.className = 'flex items-center gap-4 bg-white p-4 rounded-xl border border-gray-100 shadow-sm';
+
+        wrapper.innerHTML = `
+          <img src="${item.image}" alt="${escapeHtml(item.name)}" class="w-16 h-16 object-cover rounded-lg">
+          <div class="flex-grow">
+            <h4 class="font-semibold text-sm text-gray-900">${escapeHtml(item.name)}</h4>
+            <p class="text-primary font-bold text-sm mt-0.5">$${item.price.toFixed(2)} x ${item.quantity}</p>
+            <div class="mt-2 flex items-center gap-2">
+              <button class="px-2 py-1 bg-gray-100 rounded-md text-sm tactile" onclick="changeQuantity('${escapeJS(item.name)}', -1)">-</button>
+              <span class="text-sm">${item.quantity}</span>
+              <button class="px-2 py-1 bg-gray-100 rounded-md text-sm tactile" onclick="changeQuantity('${escapeJS(item.name)}', 1)">+</button>
+            </div>
+          </div>
+          <div class="flex flex-col items-end gap-2">
+            <button onclick="removeFromCart('${escapeJS(item.name)}')" class="text-gray-400 hover:text-red-500 transition-colors p-2 tactile" title="Eliminar">
+              <i class="fa-solid fa-trash-can"></i>
+            </button>
+            <div class="text-sm text-gray-500">$${(item.price * item.quantity).toFixed(2)}</div>
+          </div>
+        `;
+        cartItemsContainer.appendChild(wrapper);
+      });
+
+      cartTotal.textContent = `$${total.toFixed(2)}`;
+    }
+
+    function checkout() {
+      if (cart.length === 0) {
+        alert('Tu carrito está vacío.');
+        return;
+      }
+      const confirmMsg = `Total: ${cartTotal.textContent}\n\nProceder a finalizar (simulación)?`;
+      if (!confirm(confirmMsg)) return;
+      alert('¡Gracias por tu compra! (Simulación completada)');
+      cart = [];
+      saveCart();
+      updateCartUI();
+      toggleCart(false);
+    }
+
+    function showToast(msg) {
+      const el = document.createElement('div');
+      el.className = 'fixed right-6 bottom-6 bg-gray-900 text-white px-4 py-2 rounded-lg shadow-lg z-60 tactile';
+      el.textContent = msg;
+      document.body.appendChild(el);
+      setTimeout(() => el.classList.add('opacity-0'), 2200);
+      setTimeout(() => el.remove(), 2600);
+    }
+
+    function escapeHtml(s) {
+      return String(s).replace(/[&<>"']/g, (c) => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+    }
+
+    function escapeJS(s) {
+      return String(s).replace(/'/g, "\\'").replace(/\"/g, '\\"');
+    }
+
+    const reviewsKey = 'tienda_reviews_v1';
+    let reviews = [];
+
+    function loadReviews() {
+      try {
+        const raw = localStorage.getItem(reviewsKey);
+        reviews = raw ? JSON.parse(raw) : [
+          { name: 'María', rating: 5, comment: '¡Me encantó el vestido! Acabado perfecto y llegada rápida.' },
+          { name: 'Lucía', rating: 4, comment: 'La chaqueta es muy cómoda. Recomendado.' }
+        ];
+      } catch(e) { reviews = []; }
+      renderReviews();
+    }
+
+    function saveReviews() {
+      localStorage.setItem(reviewsKey, JSON.stringify(reviews));
+    }
+
+    function renderReviews() {
+      const list = document.getElementById('reviews-list');
+      const avgRatingEl = document.getElementById('avg-rating');
+      const avgStars = document.getElementById('avg-stars');
+      const totalReviewsEl = document.getElementById('total-reviews');
+
+      list.innerHTML = '';
+      if (reviews.length === 0) {
+        list.innerHTML = '<p class="text-gray-400">Aún no hay reseñas — sé el primero en opinar.</p>';
+      } else {
+        reviews.slice().reverse().forEach(r => {
+          const el = document.createElement('div');
+          el.className = 'bg-white p-4 rounded-xl border border-gray-100 shadow-sm';
+          el.innerHTML = `
+            <div class="flex items-center justify-between">
+              <div class="font-semibold">${escapeHtml(r.name)}</div>
+              <div class="text-sm text-gray-400">${renderStars(r.rating)}</div>
+            </div>
+            <p class="text-gray-600 mt-2">${escapeHtml(r.comment)}</p>
+          `;
+          list.appendChild(el);
+        });
+      }
+
+      const avg = reviews.length ? (reviews.reduce((s, r) => s + Number(r.rating), 0) / reviews.length) : 0;
+      avgRatingEl.textContent = avg ? avg.toFixed(1) : '0.0';
+      avgStars.innerHTML = renderStars(Math.round(avg));
+      totalReviewsEl.textContent = `${reviews.length} reseñas`;
+    }
+
+    function renderStars(n) {
+      let out = '';
+      for (let i = 0; i < 5; i++) {
+        out += `<i class="fa-solid fa-star star ${i < n ? '' : 'text-gray-300'}"></i> `;
+      }
+      return out;
+    }
+
+    function submitReview(e) {
+      e.preventDefault();
+      const name = document.getElementById('review-name').value.trim();
+      const rating = Number(document.getElementById('review-rating').value);
+      const comment = document.getElementById('review-comment').value.trim();
+      if (!name || !comment) return alert('Por favor completa nombre y comentario.');
+      reviews.push({ name, rating, comment });
+      saveReviews();
+      renderReviews();
+      e.target.reset();
+      showToast('Gracias por tu reseña');
+      return false;
+    }
+
+    loadCart();
+    loadReviews();
+    document.getElementById('avg-stars').innerHTML = renderStars(5);
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        toggleCart(false);
+      }
+    });
+
+    document.getElementById('mobile-menu').addEventListener('click', () => {
+      alert('Menú móvil: aquí podrías abrir el panel de navegación (placeholder).');
+    });
+  </script>
+</body>
+</html>
