@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="Naturaleza | Ropa Informal para jóvenes y niños. Calidad, comodidad y estilo auténtico."
+      content="Naturaleza | Ropa informal premium para jóvenes y niños. Calidad, estilo y comodidad."
     />
     <title>Naturaleza | Ropa Informal</title>
     <script src="https://cdn.tailwindcss.com"></script>
@@ -14,19 +14,19 @@
         theme: {
           extend: {
             colors: {
-              charcoal: '#0B0B0D',
-              charcoalSoft: '#131316',
+              charcoal: '#09090B',
+              charcoalSoft: '#121317',
               panel: '#17181C',
-              panelAlt: '#1F2025',
+              panelAlt: '#1E2026',
               sand: '#E2C792',
               gold: '#D4AF37',
-              bone: '#F2EDE4',
-              slateSoft: '#A9A7B4',
-              subtle: '#292B31',
+              bone: '#F4EFE8',
+              slateSoft: '#A8A5B3',
+              softText: '#D9D6CF',
             },
             boxShadow: {
-              glow: '0 0 30px rgba(212, 175, 55, 0.22)',
-              luxe: '0 18px 50px rgba(0, 0, 0, 0.45)',
+              glow: '0 0 28px rgba(212,175,55,0.22)',
+              luxe: '0 22px 60px rgba(0,0,0,0.45)',
             },
           },
         },
@@ -35,27 +35,28 @@
     <style>
       @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
 
-      html {
-        scroll-behavior: smooth;
+      :root {
+        --bg: #09090b;
+        --panel: #17181c;
+        --panel-2: #101114;
+        --gold: #d4af37;
+        --sand: #e2c792;
+        --bone: #f4efe8;
       }
+
+      html { scroll-behavior: smooth; }
 
       body {
         font-family: 'Inter', sans-serif;
         background:
-          radial-gradient(circle at top left, rgba(212, 175, 55, 0.08), transparent 26%),
+          radial-gradient(circle at top left, rgba(212,175,55,0.14), transparent 20%),
           radial-gradient(circle at bottom right, rgba(255,255,255,0.04), transparent 18%),
-          #0b0b0d;
-        color: #f2ede4;
-      }
-
-      .soft-panel {
-        background: linear-gradient(180deg, rgba(23,24,28,0.85), rgba(18,19,22,0.9));
-        border: 1px solid rgba(255,255,255,0.08);
-        backdrop-filter: blur(10px);
+          var(--bg);
+        color: var(--bone);
       }
 
       .gold-gradient {
-        background: linear-gradient(135deg, #d4af37 0%, #e2c792 50%, #f6e7c8 100%);
+        background: linear-gradient(135deg, #d4af37 0%, #e2c792 52%, #f3deab 100%);
       }
 
       .gold-line {
@@ -66,20 +67,26 @@
         content: '';
         position: absolute;
         left: 0;
-        bottom: -10px;
-        width: 100px;
+        bottom: -12px;
+        width: 110px;
         height: 2px;
         background: linear-gradient(90deg, #d4af37, #e2c792);
       }
 
+      .soft-panel {
+        background: linear-gradient(180deg, rgba(23,24,28,0.9), rgba(16,17,20,0.92));
+        border: 1px solid rgba(255,255,255,0.08);
+        backdrop-filter: blur(12px);
+      }
+
       .card-hover {
-        transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+        transition: transform 0.24s ease, box-shadow 0.24s ease, border-color 0.24s ease;
       }
 
       .card-hover:hover {
-        transform: translateY(-6px);
-        border-color: rgba(226, 199, 146, 0.5);
-        box-shadow: 0 20px 35px rgba(0, 0, 0, 0.23);
+        transform: translateY(-8px);
+        border-color: rgba(226,199,146,0.5);
+        box-shadow: 0 20px 45px rgba(0,0,0,0.28);
       }
 
       .product-image {
@@ -87,31 +94,28 @@
         object-fit: cover;
       }
 
-      .scrollbar-thin::-webkit-scrollbar {
-        width: 8px;
-      }
-
-      .scrollbar-thin::-webkit-scrollbar-thumb {
-        background: rgba(212, 175, 55, 0.45);
-        border-radius: 999px;
-      }
-
       .ring-amber {
-        box-shadow: 0 0 0 1px rgba(226, 199, 146, 0.3), 0 0 20px rgba(226, 199, 146, 0.12);
+        box-shadow: 0 0 0 1px rgba(226, 199, 146, 0.28), 0 0 25px rgba(226, 199, 146, 0.08);
+      }
+
+      .scrollbar-thin::-webkit-scrollbar { width: 8px; }
+      .scrollbar-thin::-webkit-scrollbar-thumb {
+        background: rgba(212,175,55,0.45);
+        border-radius: 999px;
       }
     </style>
   </head>
   <body class="bg-charcoal text-bone selection:bg-sand/25 selection:text-white">
-    <div class="border-b border-white/10 bg-[#111214]">
-      <div class="mx-auto max-w-7xl px-4 py-3 text-center text-[10px] font-semibold uppercase tracking-[0.22em] text-bone/80 sm:text-xs">
-        🔥 Vístete con tu propia esencia. Indumentaria informal de tendencia para jóvenes y niños. Envíos y retiros en el local.
+    <div class="border-b border-white/10 bg-[#101114]">
+      <div class="mx-auto max-w-7xl px-4 py-3 text-center text-[10px] font-bold uppercase tracking-[0.24em] text-bone/80 sm:text-xs">
+        🔥 Ropa informal premium para jóvenes y niños · Envíos y retiro en local
       </div>
     </div>
 
-    <header class="sticky top-0 z-40 border-b border-white/10 bg-[#0b0b0d]/80 backdrop-blur-md">
+    <header class="sticky top-0 z-40 border-b border-white/10 bg-[#0b0b0d]/85 backdrop-blur-md">
       <div class="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
         <div class="flex items-center gap-3">
-          <div class="flex h-11 w-11 items-center justify-center rounded-full border border-sand/50 bg-[#1b1d21] text-lg font-black text-sand shadow-glow">
+          <div class="flex h-11 w-11 items-center justify-center rounded-full border border-sand/50 bg-[#1d1d20] text-lg font-black text-sand shadow-glow">
             N
           </div>
           <div>
@@ -141,37 +145,53 @@
 
     <main>
       <section class="relative overflow-hidden">
-        <div class="absolute inset-0 bg-[radial-gradient(circle_at_15%_10%,rgba(226,199,146,0.18),transparent_22%),radial-gradient(circle_at_80%_30%,rgba(255,255,255,0.06),transparent_18%)]"></div>
-        <div class="relative mx-auto grid max-w-7xl items-center gap-10 px-4 py-14 sm:px-6 lg:grid-cols-[1.1fr_0.9fr] lg:px-8 lg:py-20">
+        <div class="absolute inset-0 bg-[radial-gradient(circle_at_15%_12%,rgba(226,199,146,0.18),transparent_22%),radial-gradient(circle_at_80%_30%,rgba(255,255,255,0.06),transparent_18%)]"></div>
+        <div class="relative mx-auto grid max-w-7xl items-center gap-10 px-4 py-14 sm:px-6 lg:grid-cols-[1.08fr_0.92fr] lg:px-8 lg:py-20">
           <div>
             <span class="inline-flex items-center rounded-full border border-sand/40 bg-sand/10 px-3 py-1 text-[10px] font-bold uppercase tracking-[0.22em] text-sand">
               estilo diario • actitud auténtica
             </span>
             <h2 class="mt-6 max-w-xl text-4xl font-black leading-[1.02] text-bone sm:text-5xl lg:text-6xl">
-              Naturaleza: <span class="text-sand">Libera tu estilo cotidiano</span>
+              Naturaleza: <span class="text-sand">tu estilo,</span><br />
+              sin hacer ruido.
             </h2>
             <p class="mt-5 max-w-xl text-base leading-7 text-bone/75 sm:text-lg">
-              Creamos y seleccionamos prendas diseñadas para acompañar tu ritmo diario. Calidad, comodidad y actitud en un solo lugar. Descubre la colección pensada para jóvenes y niños que no temen destacar.
+              Creamos indumentaria informal para jóvenes y niños con identidad, comodidad y presencia. Prendas pensadas para moverse, expresarse y destacar cada día.
             </p>
             <div class="mt-8 flex flex-col gap-4 sm:flex-row">
-              <a href="#catalog" class="inline-flex items-center justify-center rounded-full gold-gradient px-6 py-3 text-sm font-bold text-[#131313] shadow-glow transition hover:scale-[1.02]">
-                Ver Catálogo
+              <a href="#catalog" class="inline-flex items-center justify-center rounded-full gold-gradient px-6 py-3 text-sm font-black text-[#121212] shadow-glow transition hover:scale-[1.02]">
+                Ver catálogo
               </a>
               <a href="https://wa.me/5493518631873?text=Hola%20Naturaleza%2C%20quiero%20consultar%20por%20la%20colecci%C3%B3n%20de%20ropa%20informal." target="_blank" rel="noreferrer" class="inline-flex items-center justify-center rounded-full border border-white/15 bg-white/5 px-6 py-3 text-sm font-semibold text-bone transition hover:border-sand/50 hover:bg-white/10">
                 Consultar por WhatsApp
               </a>
+            </div>
+
+            <div class="mt-10 grid gap-4 sm:grid-cols-3">
+              <div class="soft-panel rounded-2xl p-4">
+                <p class="text-2xl font-black text-sand">100%</p>
+                <p class="mt-2 text-xs uppercase tracking-[0.18em] text-bone/65">comodidad</p>
+              </div>
+              <div class="soft-panel rounded-2xl p-4">
+                <p class="text-2xl font-black text-sand">24h</p>
+                <p class="mt-2 text-xs uppercase tracking-[0.18em] text-bone/65">respuesta</p>
+              </div>
+              <div class="soft-panel rounded-2xl p-4">
+                <p class="text-2xl font-black text-sand">+1k</p>
+                <p class="mt-2 text-xs uppercase tracking-[0.18em] text-bone/65">ventas</p>
+              </div>
             </div>
           </div>
 
           <div class="relative">
             <div class="absolute -left-10 top-8 h-32 w-32 rounded-full bg-sand/15 blur-3xl"></div>
             <div class="absolute -right-8 bottom-8 h-36 w-36 rounded-full bg-white/10 blur-3xl"></div>
-            <div class="relative overflow-hidden rounded-[28px] border border-white/10 bg-panel p-3 shadow-luxe">
-              <div class="overflow-hidden rounded-[20px] border border-white/10">
+            <div class="relative overflow-hidden rounded-[30px] border border-white/10 bg-panel p-3 shadow-luxe">
+              <div class="overflow-hidden rounded-[22px] border border-white/10">
                 <img
-                  src="https://images.unsplash.com/photo-1521572267360-ee0c2909d518?auto=format&fit=crop&w=900&q=80"
+                  src="https://images.unsplash.com/photo-1521572267360-ee0c2909d518?auto=format&fit=crop&w=1000&q=80"
                   alt="Ropa informal moderna"
-                  class="h-[510px] w-full object-cover"
+                  class="h-[520px] w-full object-cover"
                 />
               </div>
               <div class="absolute bottom-8 left-8 right-8 rounded-2xl border border-white/10 bg-[#14151a]/85 p-4 backdrop-blur-sm">
@@ -181,7 +201,7 @@
                     <h3 class="mt-1 text-lg font-semibold text-bone">Street Essentials</h3>
                   </div>
                   <span class="rounded-full border border-sand/30 bg-sand/10 px-2.5 py-1 text-[10px] font-semibold uppercase tracking-[0.12em] text-sand">
-                    +1000 ventas
+                    premium fit
                   </span>
                 </div>
               </div>
@@ -200,7 +220,7 @@
             <button class="filter-btn rounded-full border border-sand/40 bg-sand px-4 py-2 text-sm font-semibold text-[#111111] shadow-glow transition" data-category="Todos">Todos</button>
             <button class="filter-btn rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm font-medium text-bone/80 transition hover:border-sand/30 hover:text-bone" data-category="Jóvenes">Jóvenes</button>
             <button class="filter-btn rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm font-medium text-bone/80 transition hover:border-sand/30 hover:text-bone" data-category="Niños">Niños</button>
-            <button class="filter-btn rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm font-medium text-bone/80 transition hover:border-sand/30 hover:text-bone" data-category="Accesorios/Otras Prendas">Accesorios/Otras Prendas</button>
+            <button class="filter-btn rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm font-medium text-bone/80 transition hover:border-sand/30 hover:text-bone" data-category="Accesorios/Otras Prendas">Accesorios</button>
           </div>
         </div>
 
@@ -220,20 +240,20 @@
             <p class="text-xs font-semibold uppercase tracking-[0.22em] text-sand">Sobre nosotros</p>
             <h3 class="mt-3 text-3xl font-black text-bone sm:text-4xl">Un estilo que se siente como vos.</h3>
             <p class="mt-5 text-base leading-8 text-bone/75">
-              En Naturaleza creemos que la ropa informal no es solo para vestir, es una forma de expresión diaria. Diseñamos y elegimos prendas duraderas y con estilo para que niños y jóvenes se sientan cómodos, seguros y auténticos en todo momento.
+              En Naturaleza tratamos la ropa informal como una forma de identidad. Elegimos telas, cortes y detalles que acompañan la rutina sin perder carácter ni autenticidad. Para niños y jóvenes que quieren vestirse con actitud y sentirse bien en todo momento.
             </p>
             <div class="mt-8 grid gap-4 sm:grid-cols-3">
               <div class="rounded-2xl border border-white/10 bg-[#1b1d21] p-4 ring-amber">
                 <p class="text-3xl font-black text-sand">100%</p>
-                <p class="mt-2 text-sm text-bone/70">Prendas con comodidad premium</p>
+                <p class="mt-2 text-sm text-bone/70">Diseño pensado para moverse</p>
               </div>
               <div class="rounded-2xl border border-white/10 bg-[#1b1d21] p-4 ring-amber">
                 <p class="text-3xl font-black text-sand">24h</p>
-                <p class="mt-2 text-sm text-bone/70">Atención rápida por WhatsApp</p>
+                <p class="mt-2 text-sm text-bone/70">Atención directa por WhatsApp</p>
               </div>
               <div class="rounded-2xl border border-white/10 bg-[#1b1d21] p-4 ring-amber">
                 <p class="text-3xl font-black text-sand">+1k</p>
-                <p class="mt-2 text-sm text-bone/70">Clientes que eligen Naturaleza</p>
+                <p class="mt-2 text-sm text-bone/70">Clientes que ya eligieron Naturaleza</p>
               </div>
             </div>
           </div>
@@ -243,13 +263,13 @@
       <section id="reviews" class="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
         <div class="mb-10 text-center">
           <p class="text-xs font-semibold uppercase tracking-[0.22em] text-sand">Reseñas</p>
-          <h3 class="mt-3 text-3xl font-black text-bone sm:text-4xl">Lo que dicen nuestros clientes</h3>
+          <h3 class="mt-3 text-3xl font-black text-bone sm:text-4xl">Qué dicen nuestros clientes</h3>
         </div>
         <div class="grid gap-6 md:grid-cols-3">
           <article class="rounded-[24px] border border-white/10 bg-panel p-6 card-hover shadow-luxe">
             <div class="mb-4 flex text-sand">★★★★★</div>
             <p class="text-base leading-7 text-bone/75">
-              “La calidad de las telas es excelente y el estilo es justo lo que buscaba para mi hijo. La atención por WhatsApp fue súper rápida y cordial.”
+              “La calidad es excelente y el estilo muy auténtico. Mi hijo se siente cómodo y además se ve impecable. La respuesta por WhatsApp fue instantánea.”
             </p>
             <div class="mt-6 border-t border-white/10 pt-4">
               <p class="font-semibold text-bone">Lucía M.</p>
@@ -260,7 +280,7 @@
           <article class="rounded-[24px] border border-white/10 bg-panel p-6 card-hover shadow-luxe">
             <div class="mb-4 flex text-sand">★★★★★</div>
             <p class="text-base leading-7 text-bone/75">
-              “Compré varias prendas para mi grupo y me encantó la comodidad. Pedí por WhatsApp y todo salió perfecto, rápido y bien coordinado.”
+              “Compré varias piezas para mi grupo y me encantó la comodidad. Pedí por WhatsApp y todo estuvo muy bien coordinado. Lo volvería a comprar.”
             </p>
             <div class="mt-6 border-t border-white/10 pt-4">
               <p class="font-semibold text-bone">Mateo R.</p>
@@ -271,7 +291,7 @@
           <article class="rounded-[24px] border border-white/10 bg-panel p-6 card-hover shadow-luxe">
             <div class="mb-4 flex text-sand">★★★★★</div>
             <p class="text-base leading-7 text-bone/75">
-              “El local tiene un estilo muy auténtico y las prendas duran mucho. La coordinación para retiro en local fue fácil y muy amable.”
+              “El local tiene un estilo muy original y las prendas se sienten premium. La atención fue amable y el retiro en local fue super fácil.”
             </p>
             <div class="mt-6 border-t border-white/10 pt-4">
               <p class="font-semibold text-bone">Sofía T.</p>
@@ -289,7 +309,7 @@
             <div class="mt-6 space-y-5 text-bone/75">
               <div>
                 <p class="text-sm uppercase tracking-[0.22em] text-sand/80">Horarios</p>
-                <p class="mt-2 text-base">Lunes a Sábados de 17:00 a 21:00 hs.</p>
+                <p class="mt-2 text-base">Lunes a Sábados · 17:00 a 21:00 hs.</p>
               </div>
               <div>
                 <p class="text-sm uppercase tracking-[0.22em] text-sand/80">Dirección</p>
@@ -375,7 +395,7 @@
             </div>
 
             <button id="checkoutButton" class="mt-5 w-full rounded-full gold-gradient px-5 py-3 text-sm font-black text-[#121212] transition hover:brightness-110">
-              Finalizar Pedido por WhatsApp
+              Finalizar pedido por WhatsApp
             </button>
           </div>
         </div>
@@ -431,10 +451,10 @@
                 </div>
                 <div class="p-5">
                   <h4 class="text-lg font-semibold text-bone">${product.name}</h4>
-                  <div class="mt-3 flex items-center justify-between">
+                  <div class="mt-3 flex items-center justify-between gap-3">
                     <span class="text-xl font-black text-sand">${formatPrice(product.price)}</span>
                     <button data-add="${product.id}" class="add-to-cart rounded-full bg-sand px-4 py-2 text-sm font-semibold text-[#111111] transition hover:bg-[#e7ca7a]">
-                      + Agregar al Carrito
+                      + Agregar
                     </button>
                   </div>
                 </div>
