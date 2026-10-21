@@ -3,27 +3,29 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Herencia Jeans | Ropa informal premium y jeanswear con estilo, calidad y promociones exclusivas." />
-    <title>Herencia Jeans | Ropa Informal</title>
+    <meta
+      name="description"
+      content="Herencia Jeans | Estilo informal premium, jeanswear y moda diaria para hombres y mujeres."
+    />
+    <title>Herencia Jeans</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
       tailwind.config = {
         theme: {
           extend: {
             colors: {
-              charcoal: '#09090B',
-              charcoalSoft: '#121317',
-              panel: '#17181C',
-              panelAlt: '#1E2026',
+              charcoal: '#0F0F11',
+              charcoalSoft: '#17181C',
+              panel: '#1B1C20',
+              panelAlt: '#22252B',
               sand: '#E2C792',
               gold: '#D4AF37',
-              bone: '#F4EFE8',
-              slateSoft: '#A8A5B3',
-              softText: '#D9D6CF',
+              bone: '#F5F1EA',
+              muted: '#A7A5B1',
             },
             boxShadow: {
               glow: '0 0 28px rgba(212,175,55,0.22)',
-              luxe: '0 22px 60px rgba(0,0,0,0.45)',
+              luxe: '0 24px 60px rgba(0,0,0,0.45)',
             },
           },
         },
@@ -33,12 +35,11 @@
       @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
 
       :root {
-        --bg: #09090b;
-        --panel: #17181c;
-        --panel-2: #101114;
-        --gold: #d4af37;
+        --bg: #0f0f11;
+        --panel: #1b1c20;
         --sand: #e2c792;
-        --bone: #f4efe8;
+        --gold: #d4af37;
+        --bone: #f5f1ea;
       }
 
       html { scroll-behavior: smooth; }
@@ -53,27 +54,13 @@
       }
 
       .gold-gradient {
-        background: linear-gradient(135deg, #d4af37 0%, #e2c792 52%, #f3deab 100%);
-      }
-
-      .gold-line {
-        position: relative;
-      }
-
-      .gold-line::after {
-        content: '';
-        position: absolute;
-        left: 0;
-        bottom: -12px;
-        width: 110px;
-        height: 2px;
-        background: linear-gradient(90deg, #d4af37, #e2c792);
+        background: linear-gradient(135deg, #d4af37 0%, #e2c792 52%, #f7e7c4 100%);
       }
 
       .soft-panel {
-        background: linear-gradient(180deg, rgba(23,24,28,0.9), rgba(16,17,20,0.92));
-        border: 1px solid rgba(255,255,255,0.08);
-        backdrop-filter: blur(12px);
+        background: linear-gradient(180deg, rgba(27, 28, 32, 0.92), rgba(17, 18, 20, 0.96));
+        border: 1px solid rgba(255,255,255,0.06);
+        backdrop-filter: blur(10px);
       }
 
       .card-hover {
@@ -82,8 +69,8 @@
 
       .card-hover:hover {
         transform: translateY(-8px);
-        border-color: rgba(226,199,146,0.5);
-        box-shadow: 0 20px 45px rgba(0,0,0,0.28);
+        border-color: rgba(226,199,146,0.4);
+        box-shadow: 0 20px 40px rgba(0,0,0,0.28);
       }
 
       .product-image {
@@ -104,8 +91,8 @@
   </head>
   <body class="bg-charcoal text-bone selection:bg-sand/25 selection:text-white">
     <div class="border-b border-white/10 bg-[#101114]">
-      <div class="mx-auto max-w-7xl px-4 py-3 text-center text-[10px] font-bold uppercase tracking-[0.24em] text-bone/80 sm:text-xs">
-        💳 6 Cuotas sin interés · 💵 15% OFF Efectivo · 📲 10% OFF Transferencia
+      <div class="mx-auto max-w-7xl px-4 py-3 text-center text-[10px] font-bold uppercase tracking-[0.26em] text-bone/80 sm:text-xs">
+        💳 6 Cuotas sin interés | 💵 15% OFF Efectivo | 📲 10% OFF Transferencia
       </div>
     </div>
 
@@ -128,11 +115,7 @@
           <a href="#contact" class="transition hover:text-sand">Contacto</a>
         </nav>
 
-        <button
-          id="cartButton"
-          class="relative inline-flex items-center gap-3 rounded-full border border-sand/40 bg-[#1b1d21] px-4 py-2.5 text-sm font-medium text-bone transition hover:border-sand hover:bg-[#212328]"
-          aria-label="Abrir carrito"
-        >
+        <button id="cartButton" class="relative inline-flex items-center gap-3 rounded-full border border-sand/40 bg-[#1b1d21] px-4 py-2.5 text-sm font-medium text-bone transition hover:border-sand hover:bg-[#212328]" aria-label="Abrir carrito">
           <span class="text-lg">🛒</span>
           <span>Carrito</span>
           <span id="cartCount" class="flex h-6 min-w-6 items-center justify-center rounded-full bg-sand px-1.5 text-[11px] font-black text-[#121212]">0</span>
@@ -146,7 +129,7 @@
         <div class="relative mx-auto grid max-w-7xl items-center gap-10 px-4 py-14 sm:px-6 lg:grid-cols-[1.08fr_0.92fr] lg:px-8 lg:py-20">
           <div>
             <span class="inline-flex items-center rounded-full border border-sand/40 bg-sand/10 px-3 py-1 text-[10px] font-bold uppercase tracking-[0.22em] text-sand">
-              denim premium · estilo auténtico
+              denim premium • estilo auténtico
             </span>
             <h2 class="mt-6 max-w-xl text-4xl font-black leading-[1.02] text-bone sm:text-5xl lg:text-6xl">
               Estilo que <span class="text-sand">trasciende</span>,<br />
@@ -185,11 +168,7 @@
             <div class="absolute -right-8 bottom-8 h-36 w-36 rounded-full bg-white/10 blur-3xl"></div>
             <div class="relative overflow-hidden rounded-[30px] border border-white/10 bg-panel p-3 shadow-luxe">
               <div class="overflow-hidden rounded-[22px] border border-white/10">
-                <img
-                  src="https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=1000&q=80"
-                  alt="Herencia Jeans"
-                  class="h-[520px] w-full object-cover"
-                />
+                <img src="https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=1000&q=80" alt="Herencia Jeans" class="h-[520px] w-full object-cover" />
               </div>
               <div class="absolute bottom-8 left-8 right-8 rounded-2xl border border-white/10 bg-[#14151a]/85 p-4 backdrop-blur-sm">
                 <div class="flex items-center justify-between gap-4">
@@ -211,7 +190,7 @@
         <div class="flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
           <div>
             <p class="text-xs font-semibold uppercase tracking-[0.22em] text-sand">Catálogo</p>
-            <h3 class="mt-2 text-3xl font-black text-bone sm:text-4xl gold-line">Lo mejor para tu día a día</h3>
+            <h3 class="mt-2 text-3xl font-black text-bone sm:text-4xl">Lo mejor para tu día a día</h3>
           </div>
           <div class="flex flex-wrap gap-2">
             <button class="filter-btn rounded-full border border-sand/40 bg-sand px-4 py-2 text-sm font-semibold text-[#111111] shadow-glow transition" data-category="Todos">Todos</button>
@@ -227,11 +206,7 @@
       <section id="about" class="bg-[#121316] py-16">
         <div class="mx-auto grid max-w-7xl gap-8 px-4 sm:px-6 lg:grid-cols-[0.95fr_1.05fr] lg:px-8">
           <div class="overflow-hidden rounded-[26px] border border-white/10 bg-panel shadow-luxe">
-            <img
-              src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=1200&q=80"
-              alt="Promociones Herencia Jeans"
-              class="h-full min-h-[320px] w-full object-cover"
-            />
+            <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=1200&q=80" alt="Promociones Herencia Jeans" class="h-full min-h-[320px] w-full object-cover" />
           </div>
           <div class="flex flex-col justify-center">
             <p class="text-xs font-semibold uppercase tracking-[0.22em] text-sand">Promociones</p>
@@ -326,13 +301,7 @@
           <div class="rounded-[26px] border border-white/10 bg-panel p-6 sm:p-8 shadow-luxe">
             <p class="text-xs font-semibold uppercase tracking-[0.22em] text-sand">Mapa</p>
             <div class="mt-6 overflow-hidden rounded-2xl border border-white/10">
-              <iframe
-                title="Mapa de Herencia Jeans"
-                src="https://www.google.com/maps?q=Alfonsina%20Storni%20817%20C%C3%B3rdoba&output=embed"
-                class="h-[330px] w-full border-0"
-                loading="lazy"
-                referrerpolicy="no-referrer-when-downgrade"
-              ></iframe>
+              <iframe title="Mapa de Herencia Jeans" src="https://www.google.com/maps?q=Alfonsina%20Storni%20817%20C%C3%B3rdoba&output=embed" class="h-[330px] w-full border-0" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
             </div>
           </div>
         </div>
@@ -346,13 +315,7 @@
       </div>
     </footer>
 
-    <a
-      href="https://wa.me/5493515060531?text=Hola%20Herencia%20Jeans%2C%20quiero%20consultar%20por%20su%20cat%C3%A1logo."
-      target="_blank"
-      rel="noreferrer"
-      class="fixed bottom-5 right-5 z-50 flex h-14 w-14 items-center justify-center rounded-full bg-[#25D366] text-2xl shadow-2xl shadow-green-500/25 transition hover:scale-105"
-      aria-label="Chatear por WhatsApp"
-    >
+    <a href="https://wa.me/5493515060531?text=Hola%20Herencia%20Jeans%2C%20quiero%20consultar%20por%20su%20cat%C3%A1logo." target="_blank" rel="noreferrer" class="fixed bottom-5 right-5 z-50 flex h-14 w-14 items-center justify-center rounded-full bg-[#25D366] text-2xl shadow-2xl shadow-green-500/25 transition hover:scale-105" aria-label="Chatear por WhatsApp">
       💬
     </a>
 
@@ -581,7 +544,7 @@
         totalValue.textContent = formatPrice(total);
 
         cartItems.innerHTML = cartProducts.map((item) => `
-          <div class="cart-item-enter flex items-center gap-3 rounded-2xl border border-white/10 bg-[#1D1E23] p-3">
+          <div class="flex items-center gap-3 rounded-2xl border border-white/10 bg-[#1D1E23] p-3">
             <img src="${item.image}" alt="${item.name}" class="h-20 w-20 rounded-xl object-cover" />
             <div class="min-w-0 flex-1">
               <p class="truncate text-sm font-semibold text-bone">${item.name}</p>
@@ -665,7 +628,7 @@
         const transferBlock = `\nTransferencia:\nAlias: ${ownerAlias}\nTitular: ${ownerName}\nCBU: 0000000000000000000000\nEnviar comprobante a: ${ownerEmail}`;
 
         const cardText = paymentMethod.value === 'tarjeta'
-          ? `\nDatos de tarjeta:\nTitular: ${document.getElementById('cardName').value || 'No ingresado'}\nNúmero: ${document.getElementById('cardNumber').value || 'No ingresado'}\nVencimiento: ${document.getElementById('cardExpiry').value || 'No ingresado'}\nCVV: ${document.getElementById('cardCvv').value ? '********' : 'No ingresado'}`
+          ? `\nDatos de tarjeta z:\nTitular: ${document.getElementById('cardName').value || 'No ingresado'}\nNúmero: ${document.getElementById('cardNumber').value || 'No ingresado'}\nVencimiento: ${document.getElementById('cardExpiry').value || 'No ingresado'}\nCVV: ${document.getElementById('cardCvv').value ? '********' : 'No ingresado'}`
           : (paymentMethod.value === 'transferencia' ? transferBlock : '');
 
         return `Nuevo pedido Herencia Jeans\n\nFecha: ${date}\nCliente: ${customerName.value.trim() || 'Sin nombre'}\nMétodo de pago: ${paymentText}\nEntrega: ${deliveryText}${cardText}\n\nProductos:\n${productsText}\n\nSubtotal: ${formatPrice(subtotal)}\nDescuento: -${formatPrice(discount)} (${discountPercent}%)\nTotal: ${formatPrice(total)}`;
