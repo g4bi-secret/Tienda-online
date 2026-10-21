@@ -385,9 +385,39 @@
                 <select id="paymentMethod" class="w-full rounded-xl border border-white/10 bg-[#1D1E23] px-3 py-3 text-bone outline-none transition focus:border-sand/50">
                   <option value="efectivo">Efectivo -15%</option>
                   <option value="transferencia">Transferencia -10%</option>
-                  <option value="tarjeta">Tarjeta en 6 cuotas</option>
+                  <option value="tarjeta">Tarjeta de crédito/débito</option>
                 </select>
               </label>
+
+              <div id="transferInfo" class="hidden rounded-2xl border border-sand/30 bg-sand/10 p-4 text-sm text-bone/80">
+                <p class="mb-2 font-semibold text-sand">Datos para transferencia</p>
+                <p><span class="font-semibold text-bone">Alias:</span> Montesion.24</p>
+                <p><span class="font-semibold text-bone">Titular:</span> Brian Salomon Schmidt</p>
+                <p><span class="font-semibold text-bone">CBU:</span> 0000000000000000000000</p>
+                <p><span class="font-semibold text-bone">Número:</span> +54 9 351 506 0531</p>
+                <p class="mt-2"><span class="font-semibold text-bone">Enviar comprobante a:</span> herenciajeans2026@gmail.com</p>
+              </div>
+
+              <div id="cardInfo" class="hidden space-y-3 rounded-2xl border border-white/10 bg-[#121316] p-4">
+                <div>
+                  <label class="mb-1.5 block text-sm text-bone/70">Nombre del titular</label>
+                  <input id="cardName" type="text" placeholder="Ej: María López" class="w-full rounded-xl border border-white/10 bg-[#1D1E23] px-3 py-3 text-bone outline-none transition focus:border-sand/50" />
+                </div>
+                <div>
+                  <label class="mb-1.5 block text-sm text-bone/70">Número de tarjeta</label>
+                  <input id="cardNumber" type="text" maxlength="19" placeholder="1234 5678 9012 3456" class="w-full rounded-xl border border-white/10 bg-[#1D1E23] px-3 py-3 text-bone outline-none transition focus:border-sand/50" />
+                </div>
+                <div class="grid grid-cols-2 gap-3">
+                  <div>
+                    <label class="mb-1.5 block text-sm text-bone/70">Vencimiento</label>
+                    <input id="cardExpiry" type="text" maxlength="5" placeholder="MM/AA" class="w-full rounded-xl border border-white/10 bg-[#1D1E23] px-3 py-3 text-bone outline-none transition focus:border-sand/50" />
+                  </div>
+                  <div>
+                    <label class="mb-1.5 block text-sm text-bone/70">CVV</label>
+                    <input id="cardCvv" type="password" maxlength="4" placeholder="123" class="w-full rounded-xl border border-white/10 bg-[#1D1E23] px-3 py-3 text-bone outline-none transition focus:border-sand/50" />
+                  </div>
+                </div>
+              </div>
 
               <label class="block">
                 <span class="mb-1.5 block text-sm text-bone/70">Tipo de entrega</span>
@@ -405,7 +435,7 @@
             </div>
 
             <button id="checkoutButton" class="mt-5 w-full rounded-full gold-gradient px-5 py-3 text-sm font-black text-[#121212] transition hover:brightness-110">
-              Finalizar pedido por WhatsApp
+              Enviar pedido al dueño
             </button>
           </div>
         </div>
@@ -413,6 +443,11 @@
     </div>
 
     <script>
+      const ownerEmail = 'herenciajeans2026@gmail.com';
+      const ownerPhone = '5493515060531';
+      const ownerAlias = 'Montesion.24';
+      const ownerName = 'Brian Salomon Schmidt';
+
       const products = [
         { id: 1, name: 'Jeans Classic Blue', category: 'Jeans & Pantalones', price: 24990, image: 'https://images.unsplash.com/photo-1542272604-787c3835535d?auto=format&fit=crop&w=900&q=80' },
         { id: 2, name: 'Chomba Essential', category: 'Remeras & Tops', price: 12990, image: 'https://images.unsplash.com/photo-1521572267360-ee0c2909d518?auto=format&fit=crop&w=900&q=80' },
@@ -440,6 +475,8 @@
       const customerName = document.getElementById('customerName');
       const paymentMethod = document.getElementById('paymentMethod');
       const deliveryMethod = document.getElementById('deliveryMethod');
+      const transferInfo = document.getElementById('transferInfo');
+      const cardInfo = document.getElementById('cardInfo');
 
       function formatPrice(value) {
         return new Intl.NumberFormat('es-AR', {
@@ -458,6 +495,12 @@
 
       function getCartItemsCount() {
         return state.cart.reduce((sum, item) => sum + item.quantity, 0);
+      }
+
+      function togglePaymentDetails() {
+        const method = paymentMethod.value;
+        transferInfo.classList.toggle('hidden', method !== 'transferencia');
+        cardInfo.classList.toggle('hidden', method !== 'tarjeta');
       }
 
       function renderProducts() {
@@ -547,7 +590,7 @@
             <div class="flex items-center gap-2 rounded-full border border-white/10 bg-[#121316] px-2 py-1">
               <button data-action="decrement" data-id="${item.id}" class="qty-btn text-lg text-bone/70 transition hover:text-sand">−</button>
               <span class="min-w-[22px] text-center text-sm font-semibold text-bone">${item.quantity}</span>
-              <button data-action="increment" data-id="${item.id}" class="qty-btn text-lg text-bone/70 transition hover:text-sand">+</button>
+              <button data-action="increment" data-id="${item.id}" class="qty-btn text-lg text-bone/70 transition hover:text-sand">＋</button>
             </div>
             <button data-action="remove" data-id="${item.id}" class="ml-1 text-sm text-bone/50 transition hover:text-red-300">Eliminar</button>
           </div>
@@ -593,23 +636,8 @@
         document.body.classList.remove('overflow-hidden');
       }
 
-      function buildWhatsAppMessage() {
-        if (!state.cart.length) {
-          alert('Tu carrito está vacío. Agrega productos antes de finalizar.');
-          return null;
-        }
-
-        const customer = customerName.value.trim() || 'Cliente';
-        const paymentText = {
-          efectivo: 'Efectivo (-15%)',
-          transferencia: 'Transferencia (-10%)',
-          tarjeta: 'Tarjeta en 6 cuotas',
-        }[paymentMethod.value] || 'Tarjeta en 6 cuotas';
-
-        const deliveryText = deliveryMethod.value === 'local'
-          ? 'Retiro en local (Alfonsina Storni 817, B° Liceo)'
-          : 'Envío a domicilio';
-
+      function buildMailBody() {
+        const date = new Date().toLocaleString('es-AR');
         const subtotal = state.cart.reduce((acc, item) => {
           const product = products.find((p) => p.id === item.id);
           return acc + product.price * item.quantity;
@@ -619,20 +647,49 @@
         const discount = subtotal * (discountPercent / 100);
         const total = subtotal - discount;
 
-        const productsList = state.cart.map((item) => {
-          const product = products.find((p) => p.id === item.id);
-          return `- ${product.name} x${item.quantity} (${formatPrice(product.price * item.quantity)})`;
-        }).join('%0A');
+        const paymentText = {
+          efectivo: 'Efectivo (-15%)',
+          transferencia: 'Transferencia (-10%)',
+          tarjeta: 'Tarjeta de crédito/débito',
+        }[paymentMethod.value] || 'Tarjeta de crédito/débito';
 
-        return `Hola Herencia Jeans, quiero confirmar mi pedido.%0A%0A` +
-          `Cliente: ${customer}%0A` +
-          `Método de pago: ${paymentText}%0A` +
-          `Entrega: ${deliveryText}%0A%0A` +
-          `Productos:%0A${productsList}%0A%0A` +
-          `Subtotal: ${formatPrice(subtotal)}%0A` +
-          `Descuento aplicado: -${formatPrice(discount)} (${discountPercent}%)%0A` +
-          `Total final: ${formatPrice(total)}%0A%0A` +
-          `Muchas gracias.`;
+        const deliveryText = deliveryMethod.value === 'local'
+          ? 'Retiro en local (Alfonsina Storni 817, B° Liceo)'
+          : 'Envío a domicilio';
+
+        const productsText = state.cart.map((item) => {
+          const product = products.find((p) => p.id === item.id);
+          return `- ${product.name} | Cantidad: ${item.quantity} | Total: ${formatPrice(product.price * item.quantity)}`;
+        }).join('\n');
+
+        const transferBlock = `\nTransferencia:\nAlias: ${ownerAlias}\nTitular: ${ownerName}\nCBU: 0000000000000000000000\nEnviar comprobante a: ${ownerEmail}`;
+
+        const cardText = paymentMethod.value === 'tarjeta'
+          ? `\nDatos de tarjeta:\nTitular: ${document.getElementById('cardName').value || 'No ingresado'}\nNúmero: ${document.getElementById('cardNumber').value || 'No ingresado'}\nVencimiento: ${document.getElementById('cardExpiry').value || 'No ingresado'}\nCVV: ${document.getElementById('cardCvv').value ? '********' : 'No ingresado'}`
+          : (paymentMethod.value === 'transferencia' ? transferBlock : '');
+
+        return `Nuevo pedido Herencia Jeans\n\nFecha: ${date}\nCliente: ${customerName.value.trim() || 'Sin nombre'}\nMétodo de pago: ${paymentText}\nEntrega: ${deliveryText}${cardText}\n\nProductos:\n${productsText}\n\nSubtotal: ${formatPrice(subtotal)}\nDescuento: -${formatPrice(discount)} (${discountPercent}%)\nTotal: ${formatPrice(total)}`;
+      }
+
+      function validateForm() {
+        if (!customerName.value.trim()) {
+          alert('Ingresá el nombre del cliente para continuar.');
+          return false;
+        }
+
+        if (paymentMethod.value === 'tarjeta') {
+          const cardName = document.getElementById('cardName').value.trim();
+          const cardNumber = document.getElementById('cardNumber').value.trim();
+          const cardExpiry = document.getElementById('cardExpiry').value.trim();
+          const cardCvv = document.getElementById('cardCvv').value.trim();
+
+          if (!cardName || !cardNumber || !cardExpiry || !cardCvv) {
+            alert('Completá los datos de la tarjeta para continuar.');
+            return false;
+          }
+        }
+
+        return true;
       }
 
       document.querySelectorAll('.filter-btn').forEach((button) => {
@@ -656,20 +713,44 @@
         if (event.target === cartModal) closeCart();
       });
 
-      paymentMethod.addEventListener('change', renderCart);
-      deliveryMethod.addEventListener('change', renderCart);
-
-      document.getElementById('checkoutButton').addEventListener('click', () => {
-        const message = buildWhatsAppMessage();
-        if (!message) return;
-        if (!customerName.value.trim()) {
-          alert('Ingresá el nombre del cliente para continuar.');
-          return;
-        }
-        const waLink = `https://wa.me/5493515060531?text=${message}`;
-        window.open(waLink, '_blank');
+      paymentMethod.addEventListener('change', () => {
+        togglePaymentDetails();
+        renderCart();
       });
 
+      deliveryMethod.addEventListener('change', renderCart);
+
+      document.getElementById('cardNumber').addEventListener('input', function () {
+        this.value = this.value.replace(/\D/g, '').slice(0, 16).replace(/(.{4})/g, '$1 ').trim();
+      });
+
+      document.getElementById('cardExpiry').addEventListener('input', function () {
+        this.value = this.value.replace(/\D/g, '').slice(0, 4);
+        if (this.value.length >= 2) this.value = this.value.slice(0, 2) + '/' + this.value.slice(2);
+      });
+
+      document.getElementById('cardCvv').addEventListener('input', function () {
+        this.value = this.value.replace(/\D/g, '').slice(0, 4);
+      });
+
+      document.getElementById('checkoutButton').addEventListener('click', () => {
+        if (!state.cart.length) {
+          alert('Tu carrito está vacío. Agrega productos antes de finalizar.');
+          return;
+        }
+
+        if (!validateForm()) return;
+
+        const mailSubject = encodeURIComponent('Pedido Herencia Jeans');
+        const mailBody = encodeURIComponent(buildMailBody());
+        window.location.href = `mailto:${ownerEmail}?subject=${mailSubject}&body=${mailBody}`;
+
+        setTimeout(() => {
+          window.open(`https://wa.me/${ownerPhone}?text=${encodeURIComponent(buildMailBody().replace(/\n/g, '%0A'))}`, '_blank');
+        }, 500);
+      });
+
+      togglePaymentDetails();
       renderProducts();
       renderCart();
     </script>
