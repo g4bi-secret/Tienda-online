@@ -3,181 +3,203 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Herencia Jeans | Indumentaria Informal</title>
-    <meta
-      name="description"
-      content="Herencia Jeans: estilo que trasciende. Calidad que perdura. Indumentaria informal y jeanswear premium."
-    />
+    <meta name="description" content="Herencia Jeans | Ropa informal premium y jeanswear con estilo, calidad y promociones exclusivas." />
+    <title>Herencia Jeans | Ropa Informal</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
       tailwind.config = {
         theme: {
           extend: {
             colors: {
-              charcoal: '#0F0F11',
-              panel: '#1E1E22',
-              stone: '#E2C792',
+              charcoal: '#09090B',
+              charcoalSoft: '#121317',
+              panel: '#17181C',
+              panelAlt: '#1E2026',
+              sand: '#E2C792',
               gold: '#D4AF37',
-              ivory: '#F5F1EB',
-              muted: '#BDB7AF',
+              bone: '#F4EFE8',
+              slateSoft: '#A8A5B3',
+              softText: '#D9D6CF',
             },
             boxShadow: {
-              glow: '0 12px 30px rgba(212, 175, 55, 0.18)',
-            },
-            fontFamily: {
-              sans: ['Inter', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+              glow: '0 0 28px rgba(212,175,55,0.22)',
+              luxe: '0 22px 60px rgba(0,0,0,0.45)',
             },
           },
         },
       };
     </script>
     <style>
+      @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+
+      :root {
+        --bg: #09090b;
+        --panel: #17181c;
+        --panel-2: #101114;
+        --gold: #d4af37;
+        --sand: #e2c792;
+        --bone: #f4efe8;
+      }
+
       html { scroll-behavior: smooth; }
 
       body {
-        background: #0F0F11;
-        color: #F5F1EB;
-        font-family: Inter, ui-sans-serif, system-ui, sans-serif;
+        font-family: 'Inter', sans-serif;
+        background:
+          radial-gradient(circle at top left, rgba(212,175,55,0.14), transparent 20%),
+          radial-gradient(circle at bottom right, rgba(255,255,255,0.04), transparent 18%),
+          var(--bg);
+        color: var(--bone);
       }
 
-      .promo-marquee {
-        display: inline-flex;
-        min-width: max-content;
-        white-space: nowrap;
-        animation: marquee 18s linear infinite;
+      .gold-gradient {
+        background: linear-gradient(135deg, #d4af37 0%, #e2c792 52%, #f3deab 100%);
       }
 
-      @keyframes marquee {
-        from { transform: translateX(0); }
-        to { transform: translateX(-50%); }
+      .gold-line {
+        position: relative;
       }
 
-      .glass-panel {
-        background: rgba(30, 30, 34, 0.92);
+      .gold-line::after {
+        content: '';
+        position: absolute;
+        left: 0;
+        bottom: -12px;
+        width: 110px;
+        height: 2px;
+        background: linear-gradient(90deg, #d4af37, #e2c792);
+      }
+
+      .soft-panel {
+        background: linear-gradient(180deg, rgba(23,24,28,0.9), rgba(16,17,20,0.92));
         border: 1px solid rgba(255,255,255,0.08);
+        backdrop-filter: blur(12px);
       }
 
-      .product-card {
-        transition: transform 0.2s ease, box-shadow 0.2s ease;
+      .card-hover {
+        transition: transform 0.24s ease, box-shadow 0.24s ease, border-color 0.24s ease;
       }
 
-      .product-card:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 18px 30px rgba(0, 0, 0, 0.25);
+      .card-hover:hover {
+        transform: translateY(-8px);
+        border-color: rgba(226,199,146,0.5);
+        box-shadow: 0 20px 45px rgba(0,0,0,0.28);
       }
 
-      .custom-scroll::-webkit-scrollbar {
-        width: 8px;
+      .product-image {
+        height: 290px;
+        object-fit: cover;
       }
-      .custom-scroll::-webkit-scrollbar-track {
-        background: rgba(255,255,255,0.05);
+
+      .ring-amber {
+        box-shadow: 0 0 0 1px rgba(226, 199, 146, 0.28), 0 0 25px rgba(226, 199, 146, 0.08);
       }
-      .custom-scroll::-webkit-scrollbar-thumb {
-        background: rgba(212,175,55,0.7);
+
+      .scrollbar-thin::-webkit-scrollbar { width: 8px; }
+      .scrollbar-thin::-webkit-scrollbar-thumb {
+        background: rgba(212,175,55,0.45);
         border-radius: 999px;
       }
     </style>
   </head>
-  <body>
-    <div class="sticky top-0 z-50 overflow-hidden border-b border-[#D4AF37]/30 bg-[#D4AF37] text-[#111111] shadow-lg">
-      <div class="promo-marquee py-3 text-sm font-semibold uppercase tracking-[0.2em]">
-        <span class="mx-8">💳 6 Cuotas sin interés</span>
-        <span class="mx-8">💵 15% OFF Efectivo</span>
-        <span class="mx-8">📲 10% OFF Transferencia</span>
-        <span class="mx-8">💳 6 Cuotas sin interés</span>
-        <span class="mx-8">💵 15% OFF Efectivo</span>
-        <span class="mx-8">📲 10% OFF Transferencia</span>
+  <body class="bg-charcoal text-bone selection:bg-sand/25 selection:text-white">
+    <div class="border-b border-white/10 bg-[#101114]">
+      <div class="mx-auto max-w-7xl px-4 py-3 text-center text-[10px] font-bold uppercase tracking-[0.24em] text-bone/80 sm:text-xs">
+        💳 6 Cuotas sin interés · 💵 15% OFF Efectivo · 📲 10% OFF Transferencia
       </div>
     </div>
 
-    <header class="sticky top-[48px] z-40 border-b border-white/10 bg-[#121212]/80 backdrop-blur-md">
-      <nav class="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
-        <a href="#home" class="text-xl font-black tracking-[0.35em] text-[#F5F1EB] sm:text-2xl">
-          HERENCIA JEANS
-        </a>
-
-        <div class="hidden items-center gap-8 text-sm font-medium text-[#D8D8D8] md:flex">
-          <a href="#catalog" class="transition hover:text-[#E2C792]">Catálogo</a>
-          <a href="#promos" class="transition hover:text-[#E2C792]">Promociones</a>
-          <a href="#contact" class="transition hover:text-[#E2C792]">Contacto</a>
+    <header class="sticky top-0 z-40 border-b border-white/10 bg-[#0b0b0d]/85 backdrop-blur-md">
+      <div class="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
+        <div class="flex items-center gap-3">
+          <div class="flex h-11 w-11 items-center justify-center rounded-full border border-sand/50 bg-[#1d1d20] text-lg font-black text-sand shadow-glow">
+            H
+          </div>
+          <div>
+            <p class="text-[10px] uppercase tracking-[0.32em] text-sand/80">Herencia</p>
+            <h1 class="text-base font-semibold tracking-[0.12em] text-bone sm:text-lg">JEANS</h1>
+          </div>
         </div>
 
+        <nav class="hidden items-center gap-6 text-sm text-bone/70 md:flex">
+          <a href="#catalog" class="transition hover:text-sand">Catálogo</a>
+          <a href="#about" class="transition hover:text-sand">Promociones</a>
+          <a href="#reviews" class="transition hover:text-sand">Reseñas</a>
+          <a href="#contact" class="transition hover:text-sand">Contacto</a>
+        </nav>
+
         <button
-          id="openCart"
-          class="flex items-center gap-3 rounded-full border border-[#D4AF37]/50 bg-[#D4AF37] px-4 py-2.5 text-sm font-bold text-[#111111] shadow-glow transition hover:scale-[1.02]"
+          id="cartButton"
+          class="relative inline-flex items-center gap-3 rounded-full border border-sand/40 bg-[#1b1d21] px-4 py-2.5 text-sm font-medium text-bone transition hover:border-sand hover:bg-[#212328]"
+          aria-label="Abrir carrito"
         >
-          <span>🛒</span>
+          <span class="text-lg">🛒</span>
           <span>Carrito</span>
-          <span id="cartCount" class="flex h-6 min-w-[1.5rem] items-center justify-center rounded-full bg-[#111111] px-2 text-xs text-[#F5F1EB]">0</span>
+          <span id="cartCount" class="flex h-6 min-w-6 items-center justify-center rounded-full bg-sand px-1.5 text-[11px] font-black text-[#121212]">0</span>
         </button>
-      </nav>
+      </div>
     </header>
 
     <main>
-      <section id="home" class="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8 lg:py-20">
-        <div class="grid items-center gap-10 lg:grid-cols-[1.1fr_0.9fr]">
-          <div class="space-y-8">
-            <span class="inline-flex rounded-full border border-[#D4AF37]/50 bg-[#D4AF37]/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.25em] text-[#E2C792]">
-              Denim premium
+      <section class="relative overflow-hidden">
+        <div class="absolute inset-0 bg-[radial-gradient(circle_at_15%_12%,rgba(226,199,146,0.18),transparent_22%),radial-gradient(circle_at_80%_30%,rgba(255,255,255,0.06),transparent_18%)]"></div>
+        <div class="relative mx-auto grid max-w-7xl items-center gap-10 px-4 py-14 sm:px-6 lg:grid-cols-[1.08fr_0.92fr] lg:px-8 lg:py-20">
+          <div>
+            <span class="inline-flex items-center rounded-full border border-sand/40 bg-sand/10 px-3 py-1 text-[10px] font-bold uppercase tracking-[0.22em] text-sand">
+              denim premium · estilo auténtico
             </span>
-
-            <h1 class="max-w-xl text-4xl font-black leading-tight text-[#F5F1EB] sm:text-5xl lg:text-6xl">
-              Estilo que trasciende.<br />
-              <span class="text-[#E2C792]">Calidad que perdura.</span>
-            </h1>
-
-            <p class="max-w-xl text-base leading-7 text-[#C9C1B6] sm:text-lg">
+            <h2 class="mt-6 max-w-xl text-4xl font-black leading-[1.02] text-bone sm:text-5xl lg:text-6xl">
+              Estilo que <span class="text-sand">trasciende</span>,<br />
+              calidad que perdura.
+            </h2>
+            <p class="mt-5 max-w-xl text-base leading-7 text-bone/75 sm:text-lg">
               Encontrá las mejores prendas de vestir e indumentaria informal pensadas para tu ritmo diario. Aprovechá nuestras promociones exclusivas en efectivo, transferencia y tarjetas.
             </p>
-
-            <div class="flex flex-col gap-4 sm:flex-row">
-              <a href="#catalog" class="inline-flex items-center justify-center rounded-full bg-[#D4AF37] px-7 py-3 font-bold text-[#111111] shadow-glow transition hover:brightness-110">
-                Ver Catálogo
+            <div class="mt-8 flex flex-col gap-4 sm:flex-row">
+              <a href="#catalog" class="inline-flex items-center justify-center rounded-full gold-gradient px-6 py-3 text-sm font-black text-[#121212] shadow-glow transition hover:scale-[1.02]">
+                Ver catálogo
               </a>
-              <a href="#promos" class="inline-flex items-center justify-center rounded-full border border-white/10 bg-white/5 px-7 py-3 font-bold text-[#F5F1EB] transition hover:border-[#E2C792]/60 hover:text-[#E2C792]">
-                Ver Promos
+              <a href="https://wa.me/5493515060531?text=Hola%20Herencia%20Jeans%2C%20quiero%20consultar%20por%20su%20cat%C3%A1logo%20de%20indumentaria%20informal." target="_blank" rel="noreferrer" class="inline-flex items-center justify-center rounded-full border border-white/10 bg-white/5 px-6 py-3 text-sm font-black text-bone transition hover:border-sand/30 hover:text-sand">
+                Consultar por WhatsApp
               </a>
             </div>
 
-            <div class="flex flex-wrap gap-6 pt-4 text-sm text-[#C7C0B5]">
-              <div>
-                <p class="text-2xl font-black text-[#E2C792]">+2.500</p>
-                <p>Clientes felices</p>
+            <div class="mt-10 grid gap-4 sm:grid-cols-3">
+              <div class="soft-panel rounded-2xl p-4">
+                <p class="text-2xl font-black text-sand">+2.500</p>
+                <p class="mt-2 text-xs uppercase tracking-[0.18em] text-bone/65">clientes</p>
               </div>
-              <div>
-                <p class="text-2xl font-black text-[#E2C792]">+150</p>
-                <p>Modelos para cada estilo</p>
+              <div class="soft-panel rounded-2xl p-4">
+                <p class="text-2xl font-black text-sand">+150</p>
+                <p class="mt-2 text-xs uppercase tracking-[0.18em] text-bone/65">modelos</p>
               </div>
-              <div>
-                <p class="text-2xl font-black text-[#E2C792]">4.9/5</p>
-                <p>Valoración de clientes</p>
+              <div class="soft-panel rounded-2xl p-4">
+                <p class="text-2xl font-black text-sand">4.9/5</p>
+                <p class="mt-2 text-xs uppercase tracking-[0.18em] text-bone/65">valoración</p>
               </div>
             </div>
           </div>
 
           <div class="relative">
-            <div class="absolute -left-6 top-6 h-24 w-24 rounded-full bg-[#D4AF37]/20 blur-3xl"></div>
-            <div class="absolute -right-4 bottom-6 h-20 w-20 rounded-full bg-[#E2C792]/15 blur-3xl"></div>
-            <div class="glass-panel rounded-[2rem] p-4 shadow-glow">
-              <div class="overflow-hidden rounded-[1.5rem] border border-white/10 bg-[#18181B]">
+            <div class="absolute -left-10 top-8 h-32 w-32 rounded-full bg-sand/15 blur-3xl"></div>
+            <div class="absolute -right-8 bottom-8 h-36 w-36 rounded-full bg-white/10 blur-3xl"></div>
+            <div class="relative overflow-hidden rounded-[30px] border border-white/10 bg-panel p-3 shadow-luxe">
+              <div class="overflow-hidden rounded-[22px] border border-white/10">
                 <img
-                  src="https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=1200&q=80"
-                  alt="Modelo con jeans"
-                  class="h-[560px] w-full object-cover"
+                  src="https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=1000&q=80"
+                  alt="Herencia Jeans"
+                  class="h-[520px] w-full object-cover"
                 />
               </div>
-              <div class="mt-4 grid grid-cols-3 gap-3 text-center text-xs text-[#C7C0B5]">
-                <div class="rounded-xl border border-white/10 bg-white/5 p-3">
-                  <div class="mb-2 text-lg">🧵</div>
-                  <div class="font-semibold text-[#F5F1EB]">Premium</div>
-                </div>
-                <div class="rounded-xl border border-white/10 bg-white/5 p-3">
-                  <div class="mb-2 text-lg">👖</div>
-                  <div class="font-semibold text-[#F5F1EB]">Denim</div>
-                </div>
-                <div class="rounded-xl border border-white/10 bg-white/5 p-3">
-                  <div class="mb-2 text-lg">⚡</div>
-                  <div class="font-semibold text-[#F5F1EB]">Rápido</div>
+              <div class="absolute bottom-8 left-8 right-8 rounded-2xl border border-white/10 bg-[#14151a]/85 p-4 backdrop-blur-sm">
+                <div class="flex items-center justify-between gap-4">
+                  <div>
+                    <p class="text-[10px] uppercase tracking-[0.2em] text-sand">Colección</p>
+                    <h3 class="mt-1 text-lg font-semibold text-bone">Essentials denim</h3>
+                  </div>
+                  <span class="rounded-full border border-sand/30 bg-sand/10 px-2.5 py-1 text-[10px] font-semibold uppercase tracking-[0.12em] text-sand">
+                    premium fit
+                  </span>
                 </div>
               </div>
             </div>
@@ -185,89 +207,129 @@
         </div>
       </section>
 
-      <section id="catalog" class="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8 lg:py-16">
-        <div class="mb-8 flex flex-col gap-5 sm:flex-row sm:items-end sm:justify-between">
+      <section id="catalog" class="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
+        <div class="flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
           <div>
-            <p class="mb-2 text-sm font-semibold uppercase tracking-[0.25em] text-[#E2C792]">Catálogo</p>
-            <h2 class="text-3xl font-black text-[#F5F1EB] sm:text-4xl">Lo mejor para tu día a día</h2>
+            <p class="text-xs font-semibold uppercase tracking-[0.22em] text-sand">Catálogo</p>
+            <h3 class="mt-2 text-3xl font-black text-bone sm:text-4xl gold-line">Lo mejor para tu día a día</h3>
           </div>
-
-          <div class="flex flex-wrap gap-3" id="categoryFilters">
-            <button class="filter-btn rounded-full border border-[#D4AF37]/60 bg-[#D4AF37] px-4 py-2 text-sm font-bold text-[#111111]" data-category="all">Todos</button>
-            <button class="filter-btn rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm font-semibold text-[#F5F1EB]" data-category="jeans">Jeans &amp; Pantalones</button>
-            <button class="filter-btn rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm font-semibold text-[#F5F1EB]" data-category="remeras">Remeras &amp; Tops</button>
-            <button class="filter-btn rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm font-semibold text-[#F5F1EB]" data-category="abrigos">Abrigos &amp; Jackets</button>
+          <div class="flex flex-wrap gap-2">
+            <button class="filter-btn rounded-full border border-sand/40 bg-sand px-4 py-2 text-sm font-semibold text-[#111111] shadow-glow transition" data-category="Todos">Todos</button>
+            <button class="filter-btn rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm font-medium text-bone/80 transition hover:border-sand/30 hover:text-bone" data-category="Jeans &amp; Pantalones">Jeans &amp; Pantalones</button>
+            <button class="filter-btn rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm font-medium text-bone/80 transition hover:border-sand/30 hover:text-bone" data-category="Remeras &amp; Tops">Remeras &amp; Tops</button>
+            <button class="filter-btn rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm font-medium text-bone/80 transition hover:border-sand/30 hover:text-bone" data-category="Abrigos &amp; Jackets">Abrigos &amp; Jackets</button>
           </div>
         </div>
 
-        <div id="productGrid" class="grid gap-6 sm:grid-cols-2 xl:grid-cols-4"></div>
+        <div id="productGrid" class="mt-10 grid gap-6 sm:grid-cols-2 xl:grid-cols-4"></div>
       </section>
 
-      <section id="promos" class="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8 lg:py-16">
-        <div class="mb-8">
-          <p class="mb-2 text-sm font-semibold uppercase tracking-[0.25em] text-[#E2C792]">Promociones</p>
-          <h2 class="text-3xl font-black text-[#F5F1EB] sm:text-4xl">Elegí tu forma de pago y ahorrá</h2>
+      <section id="about" class="bg-[#121316] py-16">
+        <div class="mx-auto grid max-w-7xl gap-8 px-4 sm:px-6 lg:grid-cols-[0.95fr_1.05fr] lg:px-8">
+          <div class="overflow-hidden rounded-[26px] border border-white/10 bg-panel shadow-luxe">
+            <img
+              src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=1200&q=80"
+              alt="Promociones Herencia Jeans"
+              class="h-full min-h-[320px] w-full object-cover"
+            />
+          </div>
+          <div class="flex flex-col justify-center">
+            <p class="text-xs font-semibold uppercase tracking-[0.22em] text-sand">Promociones</p>
+            <h3 class="mt-3 text-3xl font-black text-bone sm:text-4xl">Tu forma de pago, tu mejor ahorro.</h3>
+            <div class="mt-8 grid gap-4 sm:grid-cols-3">
+              <div class="rounded-2xl border border-white/10 bg-[#1b1d21] p-4 ring-amber">
+                <div class="text-3xl">💳</div>
+                <p class="mt-3 text-2xl font-black text-sand">6 cuotas</p>
+                <p class="mt-2 text-sm text-bone/70">Sin interés con tarjetas seleccionadas.</p>
+              </div>
+              <div class="rounded-2xl border border-white/10 bg-[#1b1d21] p-4 ring-amber">
+                <div class="text-3xl">💵</div>
+                <p class="mt-3 text-2xl font-black text-sand">15% OFF</p>
+                <p class="mt-2 text-sm text-bone/70">Abonando en efectivo.</p>
+              </div>
+              <div class="rounded-2xl border border-white/10 bg-[#1b1d21] p-4 ring-amber">
+                <div class="text-3xl">📲</div>
+                <p class="mt-3 text-2xl font-black text-sand">10% OFF</p>
+                <p class="mt-2 text-sm text-bone/70">Por transferencia bancaria.</p>
+              </div>
+            </div>
+          </div>
         </div>
+      </section>
 
-        <div class="grid gap-6 lg:grid-cols-3">
-          <article class="glass-panel rounded-[1.75rem] p-6 shadow-glow">
-            <div class="mb-4 text-4xl">💳</div>
-            <h3 class="mb-3 text-2xl font-black text-[#F5F1EB]">6 cuotas sin interés</h3>
-            <p class="text-base leading-7 text-[#D6CFC7]">
-              En tarjetas seleccionadas, podés financiar tu compra con la comodidad de cuotas fijas y sin interés.
+      <section id="reviews" class="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
+        <div class="mb-10 text-center">
+          <p class="text-xs font-semibold uppercase tracking-[0.22em] text-sand">Reseñas</p>
+          <h3 class="mt-3 text-3xl font-black text-bone sm:text-4xl">Qué dicen nuestros clientes</h3>
+        </div>
+        <div class="grid gap-6 md:grid-cols-3">
+          <article class="rounded-[24px] border border-white/10 bg-panel p-6 card-hover shadow-luxe">
+            <div class="mb-4 flex text-sand">★★★★★</div>
+            <p class="text-base leading-7 text-bone/75">
+              “La calidad del denim es excelente. Las prendas tienen un corte moderno y muy cómodo para el día a día. El descuento por transferencia fue un plus increíble.”
             </p>
+            <div class="mt-6 border-t border-white/10 pt-4">
+              <p class="font-semibold text-bone">Lucía M.</p>
+              <p class="text-sm text-bone/55">Cliente de jeans</p>
+            </div>
           </article>
 
-          <article class="glass-panel rounded-[1.75rem] p-6 shadow-glow">
-            <div class="mb-4 text-4xl">💵</div>
-            <h3 class="mb-3 text-2xl font-black text-[#F5F1EB]">15% OFF en efectivo</h3>
-            <p class="text-base leading-7 text-[#D6CFC7]">
-              Ahorrá un 15% abonando en efectivo y reducí aún más el valor de tu carrito con tus prendas favoritas.
+          <article class="rounded-[24px] border border-white/10 bg-panel p-6 card-hover shadow-luxe">
+            <div class="mb-4 flex text-sand">★★★★★</div>
+            <p class="text-base leading-7 text-bone/75">
+              “Pedí varias prendas por WhatsApp y todo fue rápido, claro y muy amable. La variedad de estilos y la calidad me convencieron desde el primer vistazo.”
             </p>
+            <div class="mt-6 border-t border-white/10 pt-4">
+              <p class="font-semibold text-bone">Mateo R.</p>
+              <p class="text-sm text-bone/55">Cliente frecuente</p>
+            </div>
           </article>
 
-          <article class="glass-panel rounded-[1.75rem] p-6 shadow-glow">
-            <div class="mb-4 text-4xl">📲</div>
-            <h3 class="mb-3 text-2xl font-black text-[#F5F1EB]">10% OFF por transferencia</h3>
-            <p class="text-base leading-7 text-[#D6CFC7]">
-              Pagá por transferencia bancaria y accedé a un descuento adicional del 10% sobre tu compra.
+          <article class="rounded-[24px] border border-white/10 bg-panel p-6 card-hover shadow-luxe">
+            <div class="mb-4 flex text-sand">★★★★★</div>
+            <p class="text-base leading-7 text-bone/75">
+              “Las jackets y remeras tienen una estética muy cuidada. Además, el retiro en local fue impecable y la atención fue excelente.”
             </p>
+            <div class="mt-6 border-t border-white/10 pt-4">
+              <p class="font-semibold text-bone">Sofía T.</p>
+              <p class="text-sm text-bone/55">Cliente de la tienda</p>
+            </div>
           </article>
         </div>
       </section>
 
-      <section id="contact" class="mx-auto max-w-7xl px-4 py-8 pb-16 sm:px-6 lg:px-8 lg:pb-24">
-        <div class="grid gap-6 lg:grid-cols-[1.08fr_0.92fr]">
-          <div class="glass-panel rounded-[2rem] p-6 sm:p-8">
-            <p class="mb-3 text-sm font-semibold uppercase tracking-[0.25em] text-[#E2C792]">Ubicación</p>
-            <h3 class="mb-6 text-3xl font-black text-[#F5F1EB]">Visitanos en el local</h3>
-
-            <div class="space-y-5 text-[#E7E1DA]">
-              <div class="flex items-start gap-3">
-                <span class="text-xl">📍</span>
-                <p>Alfonsina Storni 817, Barrio Liceo, Córdoba.</p>
+      <section id="contact" class="bg-[#101113] py-16">
+        <div class="mx-auto grid max-w-7xl gap-8 px-4 sm:px-6 lg:grid-cols-[1fr_1fr] lg:px-8">
+          <div class="rounded-[26px] border border-white/10 bg-panel p-6 sm:p-8 shadow-luxe">
+            <p class="text-xs font-semibold uppercase tracking-[0.22em] text-sand">Ubicación</p>
+            <h3 class="mt-3 text-3xl font-black text-bone">Visitanos o consultanos online</h3>
+            <div class="mt-6 space-y-5 text-bone/75">
+              <div>
+                <p class="text-sm uppercase tracking-[0.22em] text-sand/80">Horarios</p>
+                <p class="mt-2 text-base">Lunes a Sábados de 10:30 a 13:00 hs y de 17:30 a 21:00 hs.</p>
               </div>
-              <div class="flex items-start gap-3">
-                <span class="text-xl">🕒</span>
-                <p>Lunes a Sábados de 10:30 a 13:00 hs y de 17:30 a 21:00 hs.</p>
+              <div>
+                <p class="text-sm uppercase tracking-[0.22em] text-sand/80">Dirección</p>
+                <p class="mt-2 text-base">Alfonsina Storni 817, Barrio Liceo, Córdoba.</p>
               </div>
-              <div class="flex items-start gap-3">
-                <span class="text-xl">📱</span>
-                <p>Instagram: @herenciajeans2026</p>
+              <div>
+                <p class="text-sm uppercase tracking-[0.22em] text-sand/80">Instagram</p>
+                <p class="mt-2 text-base">@herenciajeans2026</p>
               </div>
-              <div class="flex items-start gap-3">
-                <span class="text-xl">☎️</span>
-                <p>Teléfono directo: +54 9 351 506 0531</p>
+              <div>
+                <p class="text-sm uppercase tracking-[0.22em] text-sand/80">Teléfono</p>
+                <p class="mt-2 text-base">+54 9 351 506 0531</p>
               </div>
             </div>
           </div>
 
-          <div class="glass-panel rounded-[2rem] p-6 sm:p-8">
-            <div class="h-full overflow-hidden rounded-[1.5rem] border border-white/10">
+          <div class="rounded-[26px] border border-white/10 bg-panel p-6 sm:p-8 shadow-luxe">
+            <p class="text-xs font-semibold uppercase tracking-[0.22em] text-sand">Mapa</p>
+            <div class="mt-6 overflow-hidden rounded-2xl border border-white/10">
               <iframe
                 title="Mapa de Herencia Jeans"
                 src="https://www.google.com/maps?q=Alfonsina%20Storni%20817%20C%C3%B3rdoba&output=embed"
-                class="h-[320px] w-full border-0"
+                class="h-[330px] w-full border-0"
                 loading="lazy"
                 referrerpolicy="no-referrer-when-downgrade"
               ></iframe>
@@ -277,107 +339,114 @@
       </section>
     </main>
 
-    <footer class="border-t border-white/10 bg-[#121212]">
-      <div class="mx-auto flex max-w-7xl flex-col gap-3 px-4 py-6 text-sm text-[#BDB7AF] sm:flex-row sm:items-center sm:justify-between sm:px-6 lg:px-8">
-        <p>© 2026 Herencia Jeans — Estilo con identidad.</p>
-        <div class="flex gap-4">
-          <a href="#" class="hover:text-[#E2C792]">Instagram</a>
-          <a href="#" class="hover:text-[#E2C792]">WhatsApp</a>
-          <a href="#" class="hover:text-[#E2C792]">Contacto</a>
-        </div>
+    <footer class="border-t border-white/10 bg-[#0b0b0d] py-6">
+      <div class="mx-auto flex max-w-7xl flex-col items-center justify-between gap-4 px-4 text-center text-sm text-bone/60 sm:flex-row sm:px-6 lg:px-8">
+        <p>© 2026 Herencia Jeans | Indumentaria informal</p>
+        <p>Estilo que trasciende. Calidad que perdura.</p>
       </div>
     </footer>
 
-    <div id="cartModal" class="fixed inset-0 z-[60] hidden items-end justify-center bg-black/70 p-3 sm:items-center sm:p-6">
-      <div class="w-full max-w-2xl rounded-[2rem] border border-white/10 bg-[#121212] shadow-2xl">
-        <div class="flex items-center justify-between border-b border-white/10 px-5 py-4 sm:px-6">
-          <h3 class="text-2xl font-black text-[#F5F1EB]">Tu carrito</h3>
-          <button id="closeCart" class="rounded-full border border-white/10 bg-white/5 p-2 text-xl text-[#F5F1EB] transition hover:border-[#E2C792]/60 hover:text-[#E2C792]">✕</button>
-        </div>
+    <a
+      href="https://wa.me/5493515060531?text=Hola%20Herencia%20Jeans%2C%20quiero%20consultar%20por%20su%20cat%C3%A1logo."
+      target="_blank"
+      rel="noreferrer"
+      class="fixed bottom-5 right-5 z-50 flex h-14 w-14 items-center justify-center rounded-full bg-[#25D366] text-2xl shadow-2xl shadow-green-500/25 transition hover:scale-105"
+      aria-label="Chatear por WhatsApp"
+    >
+      💬
+    </a>
 
-        <div class="custom-scroll max-h-[72vh] overflow-y-auto p-5 sm:p-6">
-          <div id="cartItems" class="space-y-4"></div>
+    <div id="cartModal" class="fixed inset-0 z-50 hidden bg-black/70 p-4 backdrop-blur-sm">
+      <div class="mx-auto flex h-full max-w-2xl items-center justify-center">
+        <div class="w-full rounded-[28px] border border-white/10 bg-[#17181C] shadow-2xl shadow-black/40">
+          <div class="flex items-center justify-between border-b border-white/10 px-5 py-4">
+            <h3 class="text-xl font-black text-bone">Tu carrito</h3>
+            <button id="closeCart" class="text-2xl text-bone/70 transition hover:text-sand">×</button>
+          </div>
 
-          <div class="mt-6 rounded-[1.25rem] border border-white/10 bg-[#1E1E22] p-4 sm:p-5">
-            <div class="space-y-4">
-              <div>
-                <label for="customerName" class="mb-2 block text-sm font-semibold text-[#E2C792]">Nombre del cliente</label>
-                <input id="customerName" type="text" class="w-full rounded-xl border border-white/10 bg-[#121212] px-4 py-3 text-[#F5F1EB] outline-none transition focus:border-[#D4AF37]" placeholder="Ej: Sofia Perez" />
-              </div>
+          <div class="max-h-[55vh] overflow-y-auto px-5 py-4 scrollbar-thin">
+            <div id="cartItems" class="space-y-3"></div>
+          </div>
 
-              <div>
-                <label for="paymentMethod" class="mb-2 block text-sm font-semibold text-[#E2C792]">Método de pago</label>
-                <select id="paymentMethod" class="w-full rounded-xl border border-white/10 bg-[#121212] px-4 py-3 text-[#F5F1EB] outline-none transition focus:border-[#D4AF37]">
+          <div class="border-t border-white/10 px-5 py-5">
+            <div class="mb-4 flex items-center justify-between text-bone/80">
+              <span class="text-sm uppercase tracking-[0.14em]">Total</span>
+              <span id="totalPrice" class="text-2xl font-black text-sand">$0</span>
+            </div>
+
+            <div class="space-y-3">
+              <label class="block">
+                <span class="mb-1.5 block text-sm text-bone/70">Nombre del cliente</span>
+                <input id="customerName" type="text" placeholder="Ej: María López" class="w-full rounded-xl border border-white/10 bg-[#1D1E23] px-3 py-3 text-bone outline-none transition focus:border-sand/50" />
+              </label>
+
+              <label class="block">
+                <span class="mb-1.5 block text-sm text-bone/70">Método de pago</span>
+                <select id="paymentMethod" class="w-full rounded-xl border border-white/10 bg-[#1D1E23] px-3 py-3 text-bone outline-none transition focus:border-sand/50">
                   <option value="efectivo">Efectivo -15%</option>
                   <option value="transferencia">Transferencia -10%</option>
                   <option value="tarjeta">Tarjeta en 6 cuotas</option>
                 </select>
-              </div>
+              </label>
 
-              <div>
-                <label for="deliveryMethod" class="mb-2 block text-sm font-semibold text-[#E2C792]">Opción de entrega</label>
-                <select id="deliveryMethod" class="w-full rounded-xl border border-white/10 bg-[#121212] px-4 py-3 text-[#F5F1EB] outline-none transition focus:border-[#D4AF37]">
+              <label class="block">
+                <span class="mb-1.5 block text-sm text-bone/70">Tipo de entrega</span>
+                <select id="deliveryMethod" class="w-full rounded-xl border border-white/10 bg-[#1D1E23] px-3 py-3 text-bone outline-none transition focus:border-sand/50">
                   <option value="local">Retiro en local (Alfonsina Storni 817, B° Liceo)</option>
                   <option value="envio">Envío a domicilio</option>
                 </select>
-              </div>
+              </label>
             </div>
 
-            <div class="mt-6 space-y-3 border-t border-white/10 pt-4 text-sm text-[#E7E0D8]">
+            <div class="mt-5 rounded-xl border border-white/10 bg-[#121316] p-4 text-sm text-bone/75">
               <div class="flex items-center justify-between"><span>Subtotal</span><span id="subtotalValue">$0</span></div>
-              <div class="flex items-center justify-between"><span>Descuento</span><span id="discountValue">-$0</span></div>
-              <div class="flex items-center justify-between text-lg font-black text-[#F5F1EB]"><span>Total</span><span id="totalValue">$0</span></div>
+              <div class="mt-2 flex items-center justify-between"><span>Descuento</span><span id="discountValue">-$0</span></div>
+              <div class="mt-3 flex items-center justify-between text-base font-black text-sand"><span>Total</span><span id="totalValue">$0</span></div>
             </div>
-          </div>
-        </div>
 
-        <div class="flex items-center justify-between border-t border-white/10 bg-[#18181B] px-5 py-4 sm:px-6">
-          <div class="text-sm text-[#D9D2C9]">
-            <span class="font-semibold text-[#E2C792]">Pedido:</span> <span id="itemsSummary">0 productos</span>
+            <button id="checkoutButton" class="mt-5 w-full rounded-full gold-gradient px-5 py-3 text-sm font-black text-[#121212] transition hover:brightness-110">
+              Finalizar pedido por WhatsApp
+            </button>
           </div>
-          <button id="checkoutBtn" class="rounded-full bg-[#D4AF37] px-5 py-3 text-sm font-black text-[#111111] transition hover:brightness-110">
-            Enviar por WhatsApp
-          </button>
         </div>
       </div>
     </div>
 
     <script>
       const products = [
-        { id: 1, name: 'Jeans Classic Blue', price: 24990, category: 'jeans', image: 'https://images.unsplash.com/photo-1542272604-787c3835535d?auto=format&fit=crop&w=900&q=80' },
-        { id: 2, name: 'Chomba Essential', price: 12990, category: 'remeras', image: 'https://images.unsplash.com/photo-1521572267360-ee0c2909d518?auto=format&fit=crop&w=900&q=80' },
-        { id: 3, name: 'Bomber Vintage', price: 33990, category: 'abrigos', image: 'https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=900&q=80' },
-        { id: 4, name: 'Pantalón Cargo', price: 21990, category: 'jeans', image: 'https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=900&q=80' },
-        { id: 5, name: 'Camiseta Oversize', price: 11990, category: 'remeras', image: 'https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=900&q=80' },
-        { id: 6, name: 'Jacket Street', price: 35990, category: 'abrigos', image: 'https://images.unsplash.com/photo-1551028719-00167b16eac5?auto=format&fit=crop&w=900&q=80' },
-        { id: 7, name: 'Jeans Slim Noir', price: 26990, category: 'jeans', image: 'https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=900&q=80' },
-        { id: 8, name: 'Top Everyday', price: 10990, category: 'remeras', image: 'https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=900&q=80' },
+        { id: 1, name: 'Jeans Classic Blue', category: 'Jeans & Pantalones', price: 24990, image: 'https://images.unsplash.com/photo-1542272604-787c3835535d?auto=format&fit=crop&w=900&q=80' },
+        { id: 2, name: 'Chomba Essential', category: 'Remeras & Tops', price: 12990, image: 'https://images.unsplash.com/photo-1521572267360-ee0c2909d518?auto=format&fit=crop&w=900&q=80' },
+        { id: 3, name: 'Bomber Vintage', category: 'Abrigos & Jackets', price: 33990, image: 'https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=900&q=80' },
+        { id: 4, name: 'Pantalón Cargo', category: 'Jeans & Pantalones', price: 21990, image: 'https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=900&q=80' },
+        { id: 5, name: 'Camiseta Oversize', category: 'Remeras & Tops', price: 11990, image: 'https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=900&q=80' },
+        { id: 6, name: 'Jacket Street', category: 'Abrigos & Jackets', price: 35990, image: 'https://images.unsplash.com/photo-1551028719-00167b16eac5?auto=format&fit=crop&w=900&q=80' },
+        { id: 7, name: 'Jeans Slim Noir', category: 'Jeans & Pantalones', price: 26990, image: 'https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=900&q=80' },
+        { id: 8, name: 'Top Everyday', category: 'Remeras & Tops', price: 10990, image: 'https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=900&q=80' },
       ];
 
-      let cart = [];
-      let activeCategory = 'all';
+      const state = {
+        activeCategory: 'Todos',
+        cart: [],
+      };
 
       const productGrid = document.getElementById('productGrid');
       const cartItems = document.getElementById('cartItems');
+      const cartModal = document.getElementById('cartModal');
       const cartCount = document.getElementById('cartCount');
+      const totalPrice = document.getElementById('totalPrice');
       const subtotalValue = document.getElementById('subtotalValue');
       const discountValue = document.getElementById('discountValue');
       const totalValue = document.getElementById('totalValue');
-      const itemsSummary = document.getElementById('itemsSummary');
       const customerName = document.getElementById('customerName');
       const paymentMethod = document.getElementById('paymentMethod');
       const deliveryMethod = document.getElementById('deliveryMethod');
 
       function formatPrice(value) {
-        return new Intl.NumberFormat('es-AR', { style: 'currency', currency: 'ARS', maximumFractionDigits: 0 }).format(value);
-      }
-
-      function getItemCount() {
-        return cart.reduce((sum, item) => sum + item.quantity, 0);
-      }
-
-      function updateCartBadge() {
-        cartCount.textContent = getItemCount();
+        return new Intl.NumberFormat('es-AR', {
+          style: 'currency',
+          currency: 'ARS',
+          maximumFractionDigits: 0,
+        }).format(value);
       }
 
       function getDiscountPercent() {
@@ -387,36 +456,38 @@
         return 0;
       }
 
-      function renderProducts() {
-        const visibleProducts = activeCategory === 'all' ? products : products.filter((product) => product.category === activeCategory);
+      function getCartItemsCount() {
+        return state.cart.reduce((sum, item) => sum + item.quantity, 0);
+      }
 
-        productGrid.innerHTML = visibleProducts
-          .map(
-            (product) => `
-              <article class="product-card overflow-hidden rounded-[1.5rem] border border-white/10 bg-[#1E1E22]">
-                <div class="overflow-hidden">
-                  <img src="${product.image}" alt="${product.name}" class="h-72 w-full object-cover transition duration-500 hover:scale-105" />
-                </div>
-                <div class="space-y-4 p-5">
-                  <div class="flex items-start justify-between gap-3">
-                    <h3 class="text-xl font-bold text-[#F5F1EB]">${product.name}</h3>
-                    <span class="rounded-full bg-[#D4AF37]/15 px-2 py-1 text-[10px] font-bold uppercase tracking-[0.2em] text-[#E2C792]">Nuevo</span>
-                  </div>
-                  <div class="flex items-center justify-between">
-                    <span class="text-2xl font-black text-[#E2C792]">${formatPrice(product.price)}</span>
-                    <button data-product-id="${product.id}" class="add-to-cart rounded-full bg-[#D4AF37] px-4 py-2 text-sm font-bold text-[#111111] transition hover:brightness-110">
-                      + Agregar al Carrito
-                    </button>
-                  </div>
-                </div>
-              </article>
-            `
-          )
-          .join('');
+      function renderProducts() {
+        const filtered = state.activeCategory === 'Todos'
+          ? products
+          : products.filter((product) => product.category === state.activeCategory);
+
+        productGrid.innerHTML = filtered.map((product) => `
+          <article class="group overflow-hidden rounded-[24px] border border-white/10 bg-panel card-hover shadow-luxe">
+            <div class="relative overflow-hidden">
+              <img src="${product.image}" alt="${product.name}" class="product-image w-full transition duration-500 group-hover:scale-105" />
+              <span class="absolute left-3 top-3 rounded-full border border-sand/40 bg-[#1b1d21]/85 px-2.5 py-1 text-[10px] font-semibold uppercase tracking-[0.12em] text-sand">
+                ${product.category}
+              </span>
+            </div>
+            <div class="p-5">
+              <h4 class="text-lg font-semibold text-bone">${product.name}</h4>
+              <div class="mt-3 flex items-center justify-between gap-3">
+                <span class="text-xl font-black text-sand">${formatPrice(product.price)}</span>
+                <button data-add="${product.id}" class="add-to-cart rounded-full bg-sand px-4 py-2 text-sm font-semibold text-[#111111] transition hover:bg-[#e7ca7a]">
+                  + Agregar
+                </button>
+              </div>
+            </div>
+          </article>
+        `).join('');
 
         document.querySelectorAll('.add-to-cart').forEach((button) => {
           button.addEventListener('click', () => {
-            addToCart(Number(button.dataset.productId));
+            addToCart(Number(button.dataset.add));
           });
         });
       }
@@ -425,168 +496,182 @@
         const product = products.find((item) => item.id === productId);
         if (!product) return;
 
-        const found = cart.find((item) => item.id === productId);
-        if (found) {
-          found.quantity += 1;
+        const existing = state.cart.find((item) => item.id === productId);
+        if (existing) {
+          existing.quantity += 1;
         } else {
-          cart.push({ ...product, quantity: 1 });
+          state.cart.push({ id: productId, quantity: 1 });
         }
 
         renderCart();
-        updateCartBadge();
         openCart();
       }
 
-      function updateQuantity(productId, change) {
-        const item = cart.find((entry) => entry.id === productId);
-        if (!item) return;
-
-        item.quantity += change;
-        if (item.quantity <= 0) {
-          cart = cart.filter((entry) => entry.id !== productId);
-        }
-
-        renderCart();
-        updateCartBadge();
-      }
-
       function renderCart() {
-        if (cart.length === 0) {
+        cartCount.textContent = String(getCartItemsCount());
+
+        if (!state.cart.length) {
           cartItems.innerHTML = `
-            <div class="rounded-[1.25rem] border border-dashed border-white/15 bg-[#1B1B1D] p-8 text-center text-[#D7D0C6]">
-              <p class="mb-3 text-4xl">🛍️</p>
-              <p class="text-lg font-semibold text-[#F5F1EB]">Tu carrito está vacío</p>
-              <p class="mt-2 text-sm text-[#C1B8B0]">Agregá algunos productos para continuar.</p>
+            <div class="rounded-2xl border border-dashed border-white/15 bg-[#1D1E23] p-6 text-center">
+              <p class="text-base text-bone/70">Tu carrito está vacío.</p>
             </div>
           `;
-        } else {
-          cartItems.innerHTML = cart
-            .map(
-              (item) => `
-                <div class="flex items-center gap-3 rounded-[1.25rem] border border-white/10 bg-[#1E1E22] p-3">
-                  <img src="${item.image}" alt="${item.name}" class="h-20 w-20 rounded-xl object-cover" />
-                  <div class="min-w-0 flex-1">
-                    <div class="flex items-start justify-between gap-3">
-                      <div>
-                        <h4 class="truncate text-base font-bold text-[#F5F1EB]">${item.name}</h4>
-                        <p class="text-sm text-[#E2C792]">${formatPrice(item.price)}</p>
-                      </div>
-                      <button data-remove-id="${item.id}" class="remove-item text-lg text-[#F5F1EB] transition hover:text-[#E2C792]">✕</button>
-                    </div>
-                    <div class="mt-3 flex items-center justify-between">
-                      <div class="flex items-center gap-2 rounded-full border border-white/10 bg-[#121212] px-2 py-1">
-                        <button data-qty-id="${item.id}" data-change="-1" class="qty-btn text-lg leading-none text-[#F5F1EB]">−</button>
-                        <span class="min-w-[1.5rem] text-center text-sm font-bold text-[#F5F1EB]">${item.quantity}</span>
-                        <button data-qty-id="${item.id}" data-change="1" class="qty-btn text-lg leading-none text-[#F5F1EB]">＋</button>
-                      </div>
-                      <p class="text-base font-black text-[#E2C792]">${formatPrice(item.price * item.quantity)}</p>
-                    </div>
-                  </div>
-                </div>
-              `
-            )
-            .join('');
+          totalPrice.textContent = '$0';
+          subtotalValue.textContent = '$0';
+          discountValue.textContent = '-$0';
+          totalValue.textContent = '$0';
+          return;
         }
 
-        document.querySelectorAll('.remove-item').forEach((button) => {
-          button.addEventListener('click', () => {
-            updateQuantity(Number(button.dataset.removeId), -999);
-          });
+        const cartProducts = state.cart.map((item) => {
+          const product = products.find((p) => p.id === item.id);
+          return { ...product, quantity: item.quantity };
         });
 
-        document.querySelectorAll('.qty-btn').forEach((button) => {
-          button.addEventListener('click', () => {
-            const productId = Number(button.dataset.qtyId);
-            const change = Number(button.dataset.change);
-            updateQuantity(productId, change);
-          });
-        });
-
-        updateTotals();
-      }
-
-      function updateTotals() {
-        const subtotal = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
-        const discountPercent = getDiscountPercent();
-        const discount = subtotal * (discountPercent / 100);
+        const subtotal = cartProducts.reduce((acc, item) => acc + item.price * item.quantity, 0);
+        const discount = subtotal * (getDiscountPercent() / 100);
         const total = subtotal - discount;
 
+        totalPrice.textContent = formatPrice(total);
         subtotalValue.textContent = formatPrice(subtotal);
         discountValue.textContent = `-${formatPrice(discount)}`;
         totalValue.textContent = formatPrice(total);
-        itemsSummary.textContent = `${getItemCount()} producto${getItemCount() === 1 ? '' : 's'}`;
+
+        cartItems.innerHTML = cartProducts.map((item) => `
+          <div class="cart-item-enter flex items-center gap-3 rounded-2xl border border-white/10 bg-[#1D1E23] p-3">
+            <img src="${item.image}" alt="${item.name}" class="h-20 w-20 rounded-xl object-cover" />
+            <div class="min-w-0 flex-1">
+              <p class="truncate text-sm font-semibold text-bone">${item.name}</p>
+              <p class="mt-1 text-sm text-sand">${formatPrice(item.price)}</p>
+            </div>
+            <div class="flex items-center gap-2 rounded-full border border-white/10 bg-[#121316] px-2 py-1">
+              <button data-action="decrement" data-id="${item.id}" class="qty-btn text-lg text-bone/70 transition hover:text-sand">−</button>
+              <span class="min-w-[22px] text-center text-sm font-semibold text-bone">${item.quantity}</span>
+              <button data-action="increment" data-id="${item.id}" class="qty-btn text-lg text-bone/70 transition hover:text-sand">+</button>
+            </div>
+            <button data-action="remove" data-id="${item.id}" class="ml-1 text-sm text-bone/50 transition hover:text-red-300">Eliminar</button>
+          </div>
+        `).join('');
+
+        document.querySelectorAll('.qty-btn').forEach((button) => {
+          button.addEventListener('click', () => {
+            updateQuantity(Number(button.dataset.id), button.dataset.action === 'increment' ? 1 : -1);
+          });
+        });
+
+        document.querySelectorAll('[data-action="remove"]').forEach((button) => {
+          button.addEventListener('click', () => {
+            removeFromCart(Number(button.dataset.id));
+          });
+        });
+      }
+
+      function updateQuantity(productId, delta) {
+        const item = state.cart.find((product) => product.id === productId);
+        if (!item) return;
+
+        item.quantity += delta;
+        if (item.quantity <= 0) {
+          state.cart = state.cart.filter((product) => product.id !== productId);
+        }
+
+        renderCart();
+      }
+
+      function removeFromCart(productId) {
+        state.cart = state.cart.filter((product) => product.id !== productId);
+        renderCart();
       }
 
       function openCart() {
-        document.getElementById('cartModal').classList.remove('hidden');
-        document.getElementById('cartModal').classList.add('flex');
+        cartModal.classList.remove('hidden');
+        document.body.classList.add('overflow-hidden');
       }
 
       function closeCart() {
-        document.getElementById('cartModal').classList.add('hidden');
-        document.getElementById('cartModal').classList.remove('flex');
+        cartModal.classList.add('hidden');
+        document.body.classList.remove('overflow-hidden');
       }
 
       function buildWhatsAppMessage() {
-        if (!cart.length) {
-          alert('Tu carrito está vacío. Agregá productos antes de enviar el pedido.');
+        if (!state.cart.length) {
+          alert('Tu carrito está vacío. Agrega productos antes de finalizar.');
           return null;
         }
 
-        const name = customerName.value.trim() || 'Cliente';
-        const paymentLabel = {
+        const customer = customerName.value.trim() || 'Cliente';
+        const paymentText = {
           efectivo: 'Efectivo (-15%)',
           transferencia: 'Transferencia (-10%)',
           tarjeta: 'Tarjeta en 6 cuotas',
         }[paymentMethod.value] || 'Tarjeta en 6 cuotas';
 
-        const deliveryLabel = deliveryMethod.value === 'local'
+        const deliveryText = deliveryMethod.value === 'local'
           ? 'Retiro en local (Alfonsina Storni 817, B° Liceo)'
           : 'Envío a domicilio';
 
-        const subtotal = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
+        const subtotal = state.cart.reduce((acc, item) => {
+          const product = products.find((p) => p.id === item.id);
+          return acc + product.price * item.quantity;
+        }, 0);
+
         const discountPercent = getDiscountPercent();
         const discount = subtotal * (discountPercent / 100);
         const total = subtotal - discount;
 
-        const productsList = cart
-          .map((item) => `- ${item.name} x${item.quantity} - ${formatPrice(item.price * item.quantity)}`)
-          .join('\n');
+        const productsList = state.cart.map((item) => {
+          const product = products.find((p) => p.id === item.id);
+          return `- ${product.name} x${item.quantity} (${formatPrice(product.price * item.quantity)})`;
+        }).join('%0A');
 
-        return `Hola, quiero confirmar mi pedido en Herencia Jeans.\n\nCliente: ${name}\nMétodo de pago: ${paymentLabel}\nEntrega: ${deliveryLabel}\n\nProductos:\n${productsList}\n\nSubtotal: ${formatPrice(subtotal)}\nDescuento aplicado: -${formatPrice(discount)} (${discountPercent}%)\nTotal final: ${formatPrice(total)}\n\nMuchas gracias.`;
+        return `Hola Herencia Jeans, quiero confirmar mi pedido.%0A%0A` +
+          `Cliente: ${customer}%0A` +
+          `Método de pago: ${paymentText}%0A` +
+          `Entrega: ${deliveryText}%0A%0A` +
+          `Productos:%0A${productsList}%0A%0A` +
+          `Subtotal: ${formatPrice(subtotal)}%0A` +
+          `Descuento aplicado: -${formatPrice(discount)} (${discountPercent}%)%0A` +
+          `Total final: ${formatPrice(total)}%0A%0A` +
+          `Muchas gracias.`;
       }
-
-      document.getElementById('openCart').addEventListener('click', openCart);
-      document.getElementById('closeCart').addEventListener('click', closeCart);
 
       document.querySelectorAll('.filter-btn').forEach((button) => {
         button.addEventListener('click', () => {
-          activeCategory = button.dataset.category;
+          state.activeCategory = button.dataset.category;
           document.querySelectorAll('.filter-btn').forEach((btn) => {
-            btn.classList.remove('bg-[#D4AF37]', 'text-[#111111]', 'border-[#D4AF37]/60');
-            btn.classList.add('border-white/10', 'bg-white/5', 'text-[#F5F1EB]');
+            btn.classList.remove('bg-sand', 'text-[#111111]');
+            btn.classList.add('bg-white/5', 'text-bone/80', 'border-white/10');
           });
 
-          button.classList.remove('border-white/10', 'bg-white/5', 'text-[#F5F1EB]');
-          button.classList.add('border-[#D4AF37]/60', 'bg-[#D4AF37]', 'text-[#111111]');
+          button.classList.remove('bg-white/5', 'text-bone/80', 'border-white/10');
+          button.classList.add('bg-sand', 'text-[#111111]', 'border-sand/40');
 
           renderProducts();
         });
       });
 
-      paymentMethod.addEventListener('change', updateTotals);
+      document.getElementById('cartButton').addEventListener('click', openCart);
+      document.getElementById('closeCart').addEventListener('click', closeCart);
+      cartModal.addEventListener('click', (event) => {
+        if (event.target === cartModal) closeCart();
+      });
 
-      document.getElementById('checkoutBtn').addEventListener('click', () => {
+      paymentMethod.addEventListener('change', renderCart);
+      deliveryMethod.addEventListener('change', renderCart);
+
+      document.getElementById('checkoutButton').addEventListener('click', () => {
         const message = buildWhatsAppMessage();
         if (!message) return;
-        const whatsappUrl = `https://wa.me/5493515060531?text=${encodeURIComponent(message)}`;
-        window.open(whatsappUrl, '_blank');
+        if (!customerName.value.trim()) {
+          alert('Ingresá el nombre del cliente para continuar.');
+          return;
+        }
+        const waLink = `https://wa.me/5493515060531?text=${message}`;
+        window.open(waLink, '_blank');
       });
 
       renderProducts();
       renderCart();
-      updateCartBadge();
-      updateTotals();
     </script>
   </body>
 </html>
