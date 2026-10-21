@@ -1,410 +1,3 @@
-<!DOCTYPE html>
-<html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta
-      name="description"
-      content="Herencia Jeans | Estilo informal premium, jeanswear y moda diaria para hombres y mujeres."
-    />
-    <title>Herencia Jeans</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-      tailwind.config = {
-        theme: {
-          extend: {
-            colors: {
-              charcoal: '#0F0F11',
-              charcoalSoft: '#17181C',
-              panel: '#1B1C20',
-              panelAlt: '#22252B',
-              sand: '#E2C792',
-              gold: '#D4AF37',
-              bone: '#F5F1EA',
-              muted: '#A7A5B1',
-            },
-            boxShadow: {
-              glow: '0 0 28px rgba(212,175,55,0.22)',
-              luxe: '0 24px 60px rgba(0,0,0,0.45)',
-            },
-          },
-        },
-      };
-    </script>
-    <style>
-      @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
-
-      :root {
-        --bg: #0f0f11;
-        --panel: #1b1c20;
-        --sand: #e2c792;
-        --gold: #d4af37;
-        --bone: #f5f1ea;
-      }
-
-      html { scroll-behavior: smooth; }
-
-      body {
-        font-family: 'Inter', sans-serif;
-        background:
-          radial-gradient(circle at top left, rgba(212,175,55,0.14), transparent 20%),
-          radial-gradient(circle at bottom right, rgba(255,255,255,0.04), transparent 18%),
-          var(--bg);
-        color: var(--bone);
-      }
-
-      .gold-gradient {
-        background: linear-gradient(135deg, #d4af37 0%, #e2c792 52%, #f7e7c4 100%);
-      }
-
-      .soft-panel {
-        background: linear-gradient(180deg, rgba(27, 28, 32, 0.92), rgba(17, 18, 20, 0.96));
-        border: 1px solid rgba(255,255,255,0.06);
-        backdrop-filter: blur(10px);
-      }
-
-      .card-hover {
-        transition: transform 0.24s ease, box-shadow 0.24s ease, border-color 0.24s ease;
-      }
-
-      .card-hover:hover {
-        transform: translateY(-8px);
-        border-color: rgba(226,199,146,0.4);
-        box-shadow: 0 20px 40px rgba(0,0,0,0.28);
-      }
-
-      .product-image {
-        height: 290px;
-        object-fit: cover;
-      }
-
-      .ring-amber {
-        box-shadow: 0 0 0 1px rgba(226, 199, 146, 0.28), 0 0 25px rgba(226, 199, 146, 0.08);
-      }
-
-      .scrollbar-thin::-webkit-scrollbar { width: 8px; }
-      .scrollbar-thin::-webkit-scrollbar-thumb {
-        background: rgba(212,175,55,0.45);
-        border-radius: 999px;
-      }
-    </style>
-  </head>
-  <body class="bg-charcoal text-bone selection:bg-sand/25 selection:text-white">
-    <div class="border-b border-white/10 bg-[#101114]">
-      <div class="mx-auto max-w-7xl px-4 py-3 text-center text-[10px] font-bold uppercase tracking-[0.26em] text-bone/80 sm:text-xs">
-        💳 6 Cuotas sin interés | 💵 15% OFF Efectivo | 📲 10% OFF Transferencia
-      </div>
-    </div>
-
-    <header class="sticky top-0 z-40 border-b border-white/10 bg-[#0b0b0d]/85 backdrop-blur-md">
-      <div class="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
-        <div class="flex items-center gap-3">
-          <div class="flex h-11 w-11 items-center justify-center rounded-full border border-sand/50 bg-[#1d1d20] text-lg font-black text-sand shadow-glow">
-            H
-          </div>
-          <div>
-            <p class="text-[10px] uppercase tracking-[0.32em] text-sand/80">Herencia</p>
-            <h1 class="text-base font-semibold tracking-[0.12em] text-bone sm:text-lg">JEANS</h1>
-          </div>
-        </div>
-
-        <nav class="hidden items-center gap-6 text-sm text-bone/70 md:flex">
-          <a href="#catalog" class="transition hover:text-sand">Catálogo</a>
-          <a href="#about" class="transition hover:text-sand">Promociones</a>
-          <a href="#reviews" class="transition hover:text-sand">Reseñas</a>
-          <a href="#contact" class="transition hover:text-sand">Contacto</a>
-        </nav>
-
-        <button id="cartButton" class="relative inline-flex items-center gap-3 rounded-full border border-sand/40 bg-[#1b1d21] px-4 py-2.5 text-sm font-medium text-bone transition hover:border-sand hover:bg-[#212328]" aria-label="Abrir carrito">
-          <span class="text-lg">🛒</span>
-          <span>Carrito</span>
-          <span id="cartCount" class="flex h-6 min-w-6 items-center justify-center rounded-full bg-sand px-1.5 text-[11px] font-black text-[#121212]">0</span>
-        </button>
-      </div>
-    </header>
-
-    <main>
-      <section class="relative overflow-hidden">
-        <div class="absolute inset-0 bg-[radial-gradient(circle_at_15%_12%,rgba(226,199,146,0.18),transparent_22%),radial-gradient(circle_at_80%_30%,rgba(255,255,255,0.06),transparent_18%)]"></div>
-        <div class="relative mx-auto grid max-w-7xl items-center gap-10 px-4 py-14 sm:px-6 lg:grid-cols-[1.08fr_0.92fr] lg:px-8 lg:py-20">
-          <div>
-            <span class="inline-flex items-center rounded-full border border-sand/40 bg-sand/10 px-3 py-1 text-[10px] font-bold uppercase tracking-[0.22em] text-sand">
-              denim premium • estilo auténtico
-            </span>
-            <h2 class="mt-6 max-w-xl text-4xl font-black leading-[1.02] text-bone sm:text-5xl lg:text-6xl">
-              Estilo que <span class="text-sand">trasciende</span>,<br />
-              calidad que perdura.
-            </h2>
-            <p class="mt-5 max-w-xl text-base leading-7 text-bone/75 sm:text-lg">
-              Encontrá las mejores prendas de vestir e indumentaria informal pensadas para tu ritmo diario. Aprovechá nuestras promociones exclusivas en efectivo, transferencia y tarjetas.
-            </p>
-            <div class="mt-8 flex flex-col gap-4 sm:flex-row">
-              <a href="#catalog" class="inline-flex items-center justify-center rounded-full gold-gradient px-6 py-3 text-sm font-black text-[#121212] shadow-glow transition hover:scale-[1.02]">
-                Ver catálogo
-              </a>
-              <a href="https://wa.me/5493515060531?text=Hola%20Herencia%20Jeans%2C%20quiero%20consultar%20por%20su%20cat%C3%A1logo%20de%20indumentaria%20informal." target="_blank" rel="noreferrer" class="inline-flex items-center justify-center rounded-full border border-white/10 bg-white/5 px-6 py-3 text-sm font-black text-bone transition hover:border-sand/30 hover:text-sand">
-                Consultar por WhatsApp
-              </a>
-            </div>
-
-            <div class="mt-10 grid gap-4 sm:grid-cols-3">
-              <div class="soft-panel rounded-2xl p-4">
-                <p class="text-2xl font-black text-sand">+2.500</p>
-                <p class="mt-2 text-xs uppercase tracking-[0.18em] text-bone/65">clientes</p>
-              </div>
-              <div class="soft-panel rounded-2xl p-4">
-                <p class="text-2xl font-black text-sand">+150</p>
-                <p class="mt-2 text-xs uppercase tracking-[0.18em] text-bone/65">modelos</p>
-              </div>
-              <div class="soft-panel rounded-2xl p-4">
-                <p class="text-2xl font-black text-sand">4.9/5</p>
-                <p class="mt-2 text-xs uppercase tracking-[0.18em] text-bone/65">valoración</p>
-              </div>
-            </div>
-          </div>
-
-          <div class="relative">
-            <div class="absolute -left-10 top-8 h-32 w-32 rounded-full bg-sand/15 blur-3xl"></div>
-            <div class="absolute -right-8 bottom-8 h-36 w-36 rounded-full bg-white/10 blur-3xl"></div>
-            <div class="relative overflow-hidden rounded-[30px] border border-white/10 bg-panel p-3 shadow-luxe">
-              <div class="overflow-hidden rounded-[22px] border border-white/10">
-                <img src="https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=1000&q=80" alt="Herencia Jeans" class="h-[520px] w-full object-cover" />
-              </div>
-              <div class="absolute bottom-8 left-8 right-8 rounded-2xl border border-white/10 bg-[#14151a]/85 p-4 backdrop-blur-sm">
-                <div class="flex items-center justify-between gap-4">
-                  <div>
-                    <p class="text-[10px] uppercase tracking-[0.2em] text-sand">Colección</p>
-                    <h3 class="mt-1 text-lg font-semibold text-bone">Essentials denim</h3>
-                  </div>
-                  <span class="rounded-full border border-sand/30 bg-sand/10 px-2.5 py-1 text-[10px] font-semibold uppercase tracking-[0.12em] text-sand">
-                    premium fit
-                  </span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section id="catalog" class="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
-        <div class="flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
-          <div>
-            <p class="text-xs font-semibold uppercase tracking-[0.22em] text-sand">Catálogo</p>
-            <h3 class="mt-2 text-3xl font-black text-bone sm:text-4xl">Lo mejor para tu día a día</h3>
-          </div>
-          <div class="flex flex-wrap gap-2">
-            <button class="filter-btn rounded-full border border-sand/40 bg-sand px-4 py-2 text-sm font-semibold text-[#111111] shadow-glow transition" data-category="Todos">Todos</button>
-            <button class="filter-btn rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm font-medium text-bone/80 transition hover:border-sand/30 hover:text-bone" data-category="Jeans &amp; Pantalones">Jeans &amp; Pantalones</button>
-            <button class="filter-btn rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm font-medium text-bone/80 transition hover:border-sand/30 hover:text-bone" data-category="Remeras &amp; Tops">Remeras &amp; Tops</button>
-            <button class="filter-btn rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm font-medium text-bone/80 transition hover:border-sand/30 hover:text-bone" data-category="Abrigos &amp; Jackets">Abrigos &amp; Jackets</button>
-          </div>
-        </div>
-
-        <div id="productGrid" class="mt-10 grid gap-6 sm:grid-cols-2 xl:grid-cols-4"></div>
-      </section>
-
-      <section id="about" class="bg-[#121316] py-16">
-        <div class="mx-auto grid max-w-7xl gap-8 px-4 sm:px-6 lg:grid-cols-[0.95fr_1.05fr] lg:px-8">
-          <div class="overflow-hidden rounded-[26px] border border-white/10 bg-panel shadow-luxe">
-            <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=1200&q=80" alt="Promociones Herencia Jeans" class="h-full min-h-[320px] w-full object-cover" />
-          </div>
-          <div class="flex flex-col justify-center">
-            <p class="text-xs font-semibold uppercase tracking-[0.22em] text-sand">Promociones</p>
-            <h3 class="mt-3 text-3xl font-black text-bone sm:text-4xl">Tu forma de pago, tu mejor ahorro.</h3>
-            <div class="mt-8 grid gap-4 sm:grid-cols-3">
-              <div class="rounded-2xl border border-white/10 bg-[#1b1d21] p-4 ring-amber">
-                <div class="text-3xl">💳</div>
-                <p class="mt-3 text-2xl font-black text-sand">6 cuotas</p>
-                <p class="mt-2 text-sm text-bone/70">Sin interés con tarjetas seleccionadas.</p>
-              </div>
-              <div class="rounded-2xl border border-white/10 bg-[#1b1d21] p-4 ring-amber">
-                <div class="text-3xl">💵</div>
-                <p class="mt-3 text-2xl font-black text-sand">15% OFF</p>
-                <p class="mt-2 text-sm text-bone/70">Abonando en efectivo.</p>
-              </div>
-              <div class="rounded-2xl border border-white/10 bg-[#1b1d21] p-4 ring-amber">
-                <div class="text-3xl">📲</div>
-                <p class="mt-3 text-2xl font-black text-sand">10% OFF</p>
-                <p class="mt-2 text-sm text-bone/70">Por transferencia bancaria.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section id="reviews" class="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
-        <div class="mb-10 text-center">
-          <p class="text-xs font-semibold uppercase tracking-[0.22em] text-sand">Reseñas</p>
-          <h3 class="mt-3 text-3xl font-black text-bone sm:text-4xl">Qué dicen nuestros clientes</h3>
-        </div>
-        <div class="grid gap-6 md:grid-cols-3">
-          <article class="rounded-[24px] border border-white/10 bg-panel p-6 card-hover shadow-luxe">
-            <div class="mb-4 flex text-sand">★★★★★</div>
-            <p class="text-base leading-7 text-bone/75">
-              “La calidad del denim es excelente. Las prendas tienen un corte moderno y muy cómodo para el día a día. El descuento por transferencia fue un plus increíble.”
-            </p>
-            <div class="mt-6 border-t border-white/10 pt-4">
-              <p class="font-semibold text-bone">Lucía M.</p>
-              <p class="text-sm text-bone/55">Cliente de jeans</p>
-            </div>
-          </article>
-
-          <article class="rounded-[24px] border border-white/10 bg-panel p-6 card-hover shadow-luxe">
-            <div class="mb-4 flex text-sand">★★★★★</div>
-            <p class="text-base leading-7 text-bone/75">
-              “Pedí varias prendas por WhatsApp y todo fue rápido, claro y muy amable. La variedad de estilos y la calidad me convencieron desde el primer vistazo.”
-            </p>
-            <div class="mt-6 border-t border-white/10 pt-4">
-              <p class="font-semibold text-bone">Mateo R.</p>
-              <p class="text-sm text-bone/55">Cliente frecuente</p>
-            </div>
-          </article>
-
-          <article class="rounded-[24px] border border-white/10 bg-panel p-6 card-hover shadow-luxe">
-            <div class="mb-4 flex text-sand">★★★★★</div>
-            <p class="text-base leading-7 text-bone/75">
-              “Las jackets y remeras tienen una estética muy cuidada. Además, el retiro en local fue impecable y la atención fue excelente.”
-            </p>
-            <div class="mt-6 border-t border-white/10 pt-4">
-              <p class="font-semibold text-bone">Sofía T.</p>
-              <p class="text-sm text-bone/55">Cliente de la tienda</p>
-            </div>
-          </article>
-        </div>
-      </section>
-
-      <section id="contact" class="bg-[#101113] py-16">
-        <div class="mx-auto grid max-w-7xl gap-8 px-4 sm:px-6 lg:grid-cols-[1fr_1fr] lg:px-8">
-          <div class="rounded-[26px] border border-white/10 bg-panel p-6 sm:p-8 shadow-luxe">
-            <p class="text-xs font-semibold uppercase tracking-[0.22em] text-sand">Ubicación</p>
-            <h3 class="mt-3 text-3xl font-black text-bone">Visitanos o consultanos online</h3>
-            <div class="mt-6 space-y-5 text-bone/75">
-              <div>
-                <p class="text-sm uppercase tracking-[0.22em] text-sand/80">Horarios</p>
-                <p class="mt-2 text-base">Lunes a Sábados de 10:30 a 13:00 hs y de 17:30 a 21:00 hs.</p>
-              </div>
-              <div>
-                <p class="text-sm uppercase tracking-[0.22em] text-sand/80">Dirección</p>
-                <p class="mt-2 text-base">Alfonsina Storni 817, Barrio Liceo, Córdoba.</p>
-              </div>
-              <div>
-                <p class="text-sm uppercase tracking-[0.22em] text-sand/80">Instagram</p>
-                <p class="mt-2 text-base">@herenciajeans2026</p>
-              </div>
-              <div>
-                <p class="text-sm uppercase tracking-[0.22em] text-sand/80">Teléfono</p>
-                <p class="mt-2 text-base">+54 9 351 506 0531</p>
-              </div>
-            </div>
-          </div>
-
-          <div class="rounded-[26px] border border-white/10 bg-panel p-6 sm:p-8 shadow-luxe">
-            <p class="text-xs font-semibold uppercase tracking-[0.22em] text-sand">Mapa</p>
-            <div class="mt-6 overflow-hidden rounded-2xl border border-white/10">
-              <iframe title="Mapa de Herencia Jeans" src="https://www.google.com/maps?q=Alfonsina%20Storni%20817%20C%C3%B3rdoba&output=embed" class="h-[330px] w-full border-0" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-            </div>
-          </div>
-        </div>
-      </section>
-    </main>
-
-    <footer class="border-t border-white/10 bg-[#0b0b0d] py-6">
-      <div class="mx-auto flex max-w-7xl flex-col items-center justify-between gap-4 px-4 text-center text-sm text-bone/60 sm:flex-row sm:px-6 lg:px-8">
-        <p>© 2026 Herencia Jeans | Indumentaria informal</p>
-        <p>Estilo que trasciende. Calidad que perdura.</p>
-      </div>
-    </footer>
-
-    <a href="https://wa.me/5493515060531?text=Hola%20Herencia%20Jeans%2C%20quiero%20consultar%20por%20su%20cat%C3%A1logo." target="_blank" rel="noreferrer" class="fixed bottom-5 right-5 z-50 flex h-14 w-14 items-center justify-center rounded-full bg-[#25D366] text-2xl shadow-2xl shadow-green-500/25 transition hover:scale-105" aria-label="Chatear por WhatsApp">
-      💬
-    </a>
-
-    <div id="cartModal" class="fixed inset-0 z-50 hidden bg-black/70 p-4 backdrop-blur-sm">
-      <div class="mx-auto flex h-full max-w-2xl items-center justify-center">
-        <div class="w-full rounded-[28px] border border-white/10 bg-[#17181C] shadow-2xl shadow-black/40">
-          <div class="flex items-center justify-between border-b border-white/10 px-5 py-4">
-            <h3 class="text-xl font-black text-bone">Tu carrito</h3>
-            <button id="closeCart" class="text-2xl text-bone/70 transition hover:text-sand">×</button>
-          </div>
-
-          <div class="max-h-[55vh] overflow-y-auto px-5 py-4 scrollbar-thin">
-            <div id="cartItems" class="space-y-3"></div>
-          </div>
-
-          <div class="border-t border-white/10 px-5 py-5">
-            <div class="mb-4 flex items-center justify-between text-bone/80">
-              <span class="text-sm uppercase tracking-[0.14em]">Total</span>
-              <span id="totalPrice" class="text-2xl font-black text-sand">$0</span>
-            </div>
-
-            <div class="space-y-3">
-              <label class="block">
-                <span class="mb-1.5 block text-sm text-bone/70">Nombre del cliente</span>
-                <input id="customerName" type="text" placeholder="Ej: María López" class="w-full rounded-xl border border-white/10 bg-[#1D1E23] px-3 py-3 text-bone outline-none transition focus:border-sand/50" />
-              </label>
-
-              <label class="block">
-                <span class="mb-1.5 block text-sm text-bone/70">Método de pago</span>
-                <select id="paymentMethod" class="w-full rounded-xl border border-white/10 bg-[#1D1E23] px-3 py-3 text-bone outline-none transition focus:border-sand/50">
-                  <option value="efectivo">Efectivo -15%</option>
-                  <option value="transferencia">Transferencia -10%</option>
-                  <option value="tarjeta">Tarjeta de crédito/débito</option>
-                </select>
-              </label>
-
-              <div id="transferInfo" class="hidden rounded-2xl border border-sand/30 bg-sand/10 p-4 text-sm text-bone/80">
-                <p class="mb-2 font-semibold text-sand">Datos para transferencia</p>
-                <p><span class="font-semibold text-bone">Alias:</span> Montesion.24</p>
-                <p><span class="font-semibold text-bone">Titular:</span> Brian Salomon Schmidt</p>
-                <p><span class="font-semibold text-bone">CBU:</span> 0000000000000000000000</p>
-                <p><span class="font-semibold text-bone">Número:</span> +54 9 351 506 0531</p>
-                <p class="mt-2"><span class="font-semibold text-bone">Enviar comprobante a:</span> herenciajeans2026@gmail.com</p>
-              </div>
-
-              <div id="cardInfo" class="hidden space-y-3 rounded-2xl border border-white/10 bg-[#121316] p-4">
-                <div>
-                  <label class="mb-1.5 block text-sm text-bone/70">Nombre del titular</label>
-                  <input id="cardName" type="text" placeholder="Ej: María López" class="w-full rounded-xl border border-white/10 bg-[#1D1E23] px-3 py-3 text-bone outline-none transition focus:border-sand/50" />
-                </div>
-                <div>
-                  <label class="mb-1.5 block text-sm text-bone/70">Número de tarjeta</label>
-                  <input id="cardNumber" type="text" maxlength="19" placeholder="1234 5678 9012 3456" class="w-full rounded-xl border border-white/10 bg-[#1D1E23] px-3 py-3 text-bone outline-none transition focus:border-sand/50" />
-                </div>
-                <div class="grid grid-cols-2 gap-3">
-                  <div>
-                    <label class="mb-1.5 block text-sm text-bone/70">Vencimiento</label>
-                    <input id="cardExpiry" type="text" maxlength="5" placeholder="MM/AA" class="w-full rounded-xl border border-white/10 bg-[#1D1E23] px-3 py-3 text-bone outline-none transition focus:border-sand/50" />
-                  </div>
-                  <div>
-                    <label class="mb-1.5 block text-sm text-bone/70">CVV</label>
-                    <input id="cardCvv" type="password" maxlength="4" placeholder="123" class="w-full rounded-xl border border-white/10 bg-[#1D1E23] px-3 py-3 text-bone outline-none transition focus:border-sand/50" />
-                  </div>
-                </div>
-              </div>
-
-              <label class="block">
-                <span class="mb-1.5 block text-sm text-bone/70">Tipo de entrega</span>
-                <select id="deliveryMethod" class="w-full rounded-xl border border-white/10 bg-[#1D1E23] px-3 py-3 text-bone outline-none transition focus:border-sand/50">
-                  <option value="local">Retiro en local (Alfonsina Storni 817, B° Liceo)</option>
-                  <option value="envio">Envío a domicilio</option>
-                </select>
-              </label>
-            </div>
-
-            <div class="mt-5 rounded-xl border border-white/10 bg-[#121316] p-4 text-sm text-bone/75">
-              <div class="flex items-center justify-between"><span>Subtotal</span><span id="subtotalValue">$0</span></div>
-              <div class="mt-2 flex items-center justify-between"><span>Descuento</span><span id="discountValue">-$0</span></div>
-              <div class="mt-3 flex items-center justify-between text-base font-black text-sand"><span>Total</span><span id="totalValue">$0</span></div>
-            </div>
-
-            <button id="checkoutButton" class="mt-5 w-full rounded-full gold-gradient px-5 py-3 text-sm font-black text-[#121212] transition hover:brightness-110">
-              Enviar pedido al dueño
-            </button>
-          </div>
-        </div>
-      </div>
-    </div>
-
     <script>
       const ownerEmail = 'herenciajeans2026@gmail.com';
       const ownerPhone = '5493515060531';
@@ -628,10 +221,10 @@
         const transferBlock = `\nTransferencia:\nAlias: ${ownerAlias}\nTitular: ${ownerName}\nCBU: 0000000000000000000000\nEnviar comprobante a: ${ownerEmail}`;
 
         const cardText = paymentMethod.value === 'tarjeta'
-          ? `\nDatos de tarjeta z:\nTitular: ${document.getElementById('cardName').value || 'No ingresado'}\nNúmero: ${document.getElementById('cardNumber').value || 'No ingresado'}\nVencimiento: ${document.getElementById('cardExpiry').value || 'No ingresado'}\nCVV: ${document.getElementById('cardCvv').value ? '********' : 'No ingresado'}`
+          ? `\nDatos de tarjeta:\nTitular: ${document.getElementById('cardName').value || 'No ingresado'}\nNúmero: ${document.getElementById('cardNumber').value || 'No ingresado'}\nVencimiento: ${document.getElementById('cardExpiry').value || 'No ingresado'}\nCVV: ${document.getElementById('cardCvv').value || 'No ingresado'}`
           : (paymentMethod.value === 'transferencia' ? transferBlock : '');
 
-        return `Nuevo pedido Herencia Jeans\n\nFecha: ${date}\nCliente: ${customerName.value.trim() || 'Sin nombre'}\nMétodo de pago: ${paymentText}\nEntrega: ${deliveryText}${cardText}\n\nProductos:\n${productsText}\n\nSubtotal: ${formatPrice(subtotal)}\nDescuento: -${formatPrice(discount)} (${discountPercent}%)\nTotal: ${formatPrice(total)}`;
+        return `Nuevo pedido Herencia Jeans\n\nFecha: ${date}\nCliente: ${customerName.value.trim() || 'Sin nombre'}\nMétodo de pago: ${paymentText}\nEntrega: ${deliveryText}${cardText}\n\nProductos:\n${productsText}\n\nSubtotal: ${formatPrice(subtotal)}\nDescuento: -${formatPrice(discount)}\nTotal: ${formatPrice(total)}`;
       }
 
       function validateForm() {
@@ -653,6 +246,38 @@
         }
 
         return true;
+      }
+
+      async function createStripeCheckoutSession() {
+        const checkoutItems = state.cart.map((item) => {
+          const product = products.find((p) => p.id === item.id);
+          return {
+            name: product.name,
+            quantity: item.quantity,
+            unit_amount: product.price,
+          };
+        });
+
+        const response = await fetch('/api/create-checkout-session', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            items: checkoutItems,
+            customerName: customerName.value.trim(),
+            deliveryMethod: deliveryMethod.value,
+            paymentMethod: paymentMethod.value,
+            email: `${customerName.value.trim().toLowerCase().replace(/\s+/g, '.')}@example.com`,
+          }),
+        });
+
+        const data = await response.json();
+        if (!response.ok) {
+          throw new Error(data.error || 'No se pudo crear la sesión de pago.');
+        }
+
+        window.location.href = data.url;
       }
 
       document.querySelectorAll('.filter-btn').forEach((button) => {
@@ -696,7 +321,7 @@
         this.value = this.value.replace(/\D/g, '').slice(0, 4);
       });
 
-      document.getElementById('checkoutButton').addEventListener('click', () => {
+      document.getElementById('checkoutButton').addEventListener('click', async () => {
         if (!state.cart.length) {
           alert('Tu carrito está vacío. Agrega productos antes de finalizar.');
           return;
@@ -704,18 +329,32 @@
 
         if (!validateForm()) return;
 
-        const mailSubject = encodeURIComponent('Pedido Herencia Jeans');
-        const mailBody = encodeURIComponent(buildMailBody());
-        window.location.href = `mailto:${ownerEmail}?subject=${mailSubject}&body=${mailBody}`;
+        const checkoutButton = document.getElementById('checkoutButton');
+        checkoutButton.disabled = true;
+        checkoutButton.textContent = 'Procesando...';
 
-        setTimeout(() => {
-          window.open(`https://wa.me/${ownerPhone}?text=${encodeURIComponent(buildMailBody().replace(/\n/g, '%0A'))}`, '_blank');
-        }, 500);
+        try {
+          if (paymentMethod.value === 'tarjeta') {
+            await createStripeCheckoutSession();
+            return;
+          }
+
+          const mailSubject = encodeURIComponent('Pedido Herencia Jeans');
+          const mailBody = encodeURIComponent(buildMailBody());
+          window.location.href = `mailto:${ownerEmail}?subject=${mailSubject}&body=${mailBody}`;
+
+          setTimeout(() => {
+            window.open(`https://wa.me/${ownerPhone}?text=${encodeURIComponent(buildMailBody().replace(/\n/g, '%0A'))}`, '_blank');
+          }, 500);
+        } catch (error) {
+          alert(error.message || 'Hubo un problema al procesar tu pedido.');
+        } finally {
+          checkoutButton.disabled = false;
+          checkoutButton.textContent = 'Enviar pedido al dueño';
+        }
       });
 
       togglePaymentDetails();
       renderProducts();
       renderCart();
     </script>
-  </body>
-</html>
